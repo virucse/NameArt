@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_close"
+        android:icon="@mipmap/close_icon_new"
+        android:orderInCategory="100"
+        android:title="Close"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_save"
+        android:icon="@mipmap/ic_mark"
+        android:orderInCategory="100"
+        android:title="@string/action_save"
+        app:showAsAction="always" />
+</menu>

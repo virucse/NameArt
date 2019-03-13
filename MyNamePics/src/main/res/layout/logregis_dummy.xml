@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/user_section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLoginClick"
+            android:text="User " />
+
+        <Button
+            android:id="@+id/feed_section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRegisterClick"
+            android:text="Feed" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profile" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profile" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

@@ -1,0 +1,138 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:actionBarSize">@dimen/actionbar_height</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <style name="PicsDreamTheme" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/picsDreamPrimaryColor</item>
+        <item name="colorPrimaryDark">@color/picsDreamDarkColor</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
+    <style name="AppThemeAddText" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <style name="Theme.AppCompat.Light.NoActionBar.FullScreen" parent="@style/Theme.AppCompat.Light">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowDisablePreview">false</item>
+    </style>
+
+    <style name="EditorTheme" parent="@style/Theme.AppCompat.Light">
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="FullScreen" parent="@style/Theme.AppCompat">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="StickerTabLayoutTextAppreance" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <!-- <style name="TextAppearance.StatusBar.EventContent">
+         <item name="android:textColor">#ff6b6b6b</item>
+     </style>-->
+    <style name="CustomNotificationTitle">
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CustomNotificationText">
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+    </style>
+
+    <style name="FontItemImageButton" parent="@android:style/Widget.Button">
+        <item name="android:textSize">@dimen/font_normal</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">0.0dip</item>
+        <item name="android:layout_margin">@dimen/padding_normal</item>
+        <item name="android:text">font</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:contentDescription">@string/app_name</item>
+    </style>
+
+    <style name="NormalSeekBar" parent="@android:style/Widget.SeekBar">
+        <item name="android:paddingLeft">10.0dip</item>
+        <item name="android:paddingRight">10.0dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxHeight">2.0dip</item>
+        <item name="android:max">100</item>
+        <item name="android:minHeight">2.0dip</item>
+        <item name="android:thumb">@mipmap/ic_seek_thumb</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
+
+    <style name="ColorSeekBar" parent="@android:style/Widget.SeekBar">
+        <item name="android:paddingLeft">15.0dip</item>
+        <item name="android:paddingRight">15.0dip</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:max">100</item>
+        <item name="android:progressDrawable">@drawable/seekbar_empty_bg</item>
+        <item name="android:thumb">@drawable/ic_hint_fg</item>
+    </style>
+
+    <style name="ColorSeekBarTmp" parent="@android:style/Widget.SeekBar">
+        <item name="android:paddingLeft">12.0dip</item>
+        <item name="android:paddingRight">12.0dip</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:max">100</item>
+        <item name="android:progressDrawable">@drawable/seekbar_empty_bg</item>
+        <item name="android:thumb">@drawable/empty_bg</item>
+    </style>
+
+    <style name="ColorSelectionBgImageView">
+        <item name="android:paddingLeft">5.0dip</item>
+        <item name="android:paddingRight">5.0dip</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:src">@drawable/ic_color_selection_bg</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="aleartDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:background">@color/aleart_bg_color</item>
+    </style>
+	
+	<style name="AppBaseTheme" parent="Theme.AppCompat.Light" />
+
+    <style name="FuNoTitleTheme" parent="@style/AppTheme">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>

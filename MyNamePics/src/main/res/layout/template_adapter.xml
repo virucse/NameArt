@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/ad_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="50dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone">
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/ad_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/admob_bannerId"
+            android:visibility="visible"/>
+    </LinearLayout>
+    <GridView
+        android:id="@+id/gridview_template_adapter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="2" />
+
+</LinearLayout>

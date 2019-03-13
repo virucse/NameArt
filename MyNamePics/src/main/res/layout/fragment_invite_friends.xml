@@ -1,0 +1,50 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/web_api_background"
+    tools:context="com.webapi.fragments.InviteFriendsFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/inviteFriends_layout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/web_strip_color"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/backIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:drawableLeft="@mipmap/back_fragment"
+                android:visibility="gone" />
+
+            <com.formationapps.widget.AutoResizeTextView
+                android:id="@+id/titlebar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:text="@string/invite_facebook_friends"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/inviteFriends_recylerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical" />
+    </LinearLayout>
+
+
+
+</RelativeLayout>

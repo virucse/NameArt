@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_addtext"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionbar_height"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <RelativeLayout
+                android:id="@+id/close_addtext"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:clickable="true">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/close_icon_new" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/add_text_text"
+                    android:textColor="@color/c1"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/done_addtext"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:clickable="true">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ic_mark" />
+            </RelativeLayout>
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="fill_parent"
+        android:layout_height="100.0dip"
+        android:background="#fff2f2f2"
+        android:gravity="center"
+        android:hint="Add Name "
+        android:padding="10.0dip"
+        android:textColor="#ff000000"
+        android:textColorHint="#ff000000"
+        android:textSize="40.0dip" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.0"
+        android:orientation="vertical"
+        android:padding="10.0dip">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edt_name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/roundedittext"
+                android:gravity="center"
+                android:imeActionLabel="Done"
+                android:inputType="textCapWords"
+                android:padding="10.0dip"
+                android:singleLine="true"
+                android:textColor="#ff000000"
+                android:textColorHint="#ff000000"
+                android:textSize="30.0dip" />
+
+            <ImageView
+                android:id="@+id/img_color"
+                android:layout_width="70.0dip"
+                android:layout_height="70.0dip"
+                android:padding="5.0dip"
+                android:src="@mipmap/picker" />
+        </LinearLayout>
+
+        <GridView
+            android:id="@+id/grid_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10.0dip"
+            android:layout_marginTop="10.0dip"
+            android:numColumns="3"
+            android:scrollbars="none" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/adContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/toolbar_savephoto">
+
+        <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            ads:adSize="SMART_BANNER"
+            ads:adUnitId="@string/admob_bannerId" />
+    </RelativeLayout>
+</LinearLayout>

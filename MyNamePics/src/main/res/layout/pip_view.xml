@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffffff">
+
+    <ImageView
+        android:id="@+id/img_bgTemp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/icon_72" />
+
+    <ImageView
+        android:id="@+id/img_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop" />
+
+    <nonworkingcode.pip.views.PIPTouchImageView
+        android:id="@+id/img_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true" />
+
+    <ImageView
+        android:id="@+id/pip_cover"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY" />
+
+    <RelativeLayout
+        android:id="@+id/rel_topView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.xiaopo.flying.sticker.StickerView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/sticker_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        app:showBorder="true"
+        app:showIcons="true" />
+</FrameLayout>

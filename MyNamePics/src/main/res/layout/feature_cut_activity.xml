@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:id="@+id/cropLyt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:paddingTop="50dp" />
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:orientation="vertical">
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/ad_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/admob_bannerId"
+            android:visibility="gone"/>
+        <!--<com.mobfox.sdk.bannerads.Banner
+            xmlns:mobfox="http://schemas.android.com/apk/lib/com.mobfox.sdk"
+            android:id="@+id/banner"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            mobfox:enableLocation="true"/>-->
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/optionLyt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#ff242424"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageButton
+            android:id="@+id/retryBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_retry" />
+
+        <ImageButton
+            android:id="@+id/InnercropBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_next" />
+    </LinearLayout>
+</RelativeLayout>

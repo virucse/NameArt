@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#01002a"
+        android:orientation="vertical"
+        android:padding="2dp">
+
+        <TextView
+            android:id="@+id/tv_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="maxcount"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+
+        <SeekBar
+            android:id="@+id/wheel_panel_filter"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/panel_seek_height"
+            android:max="100"
+            android:padding="5dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/panel_seek_height"
+            android:layout_marginLeft="@dimen/margin_short"
+            android:layout_marginRight="@dimen/margin_short"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/ib_sp_discard"
+                android:layout_width="@dimen/menu_item_size"
+                android:layout_height="@dimen/menu_item_size" />
+
+            <TextView
+                android:id="@+id/tv_sp_filter_name"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin_extra_short"
+                android:layout_marginRight="@dimen/margin_extra_short"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:textColor="#ffffff"
+                android:textSize="17sp" />
+
+            <ImageButton
+                android:id="@+id/ib_sp_apply"
+                android:layout_width="@dimen/menu_item_size"
+                android:layout_height="@dimen/menu_item_size" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

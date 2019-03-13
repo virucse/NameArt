@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--adapter_item_album-->
+    <LinearLayout
+        android:id="@+id/adapter_item_album"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="3dp">
+
+        <ImageView
+            android:id="@+id/im_row_album_adapter_item_album"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/icon_72" />
+
+        <TextView
+            android:id="@+id/tv_row_album_adapter_item_album"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:maxLines="1"
+            android:minHeight="30dp"
+            android:text="@string/app_name"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <!--adapter_item_scroll-->
+    <FrameLayout
+        android:id="@+id/adapter_item_scroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/im_row_album_adapter_item_scroll"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/icon_72" />
+
+        <ImageButton
+            android:id="@+id/im_row_delete_adapter_item_scroll"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@mipmap/icon_72" />
+    </FrameLayout>
+    <!--adapter_item_photo-->
+    <LinearLayout
+        android:id="@+id/adapter_item_photo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="2dp">
+
+        <ImageView
+            android:id="@+id/im_row_album_adapter_item_photo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/icon_72" />
+    </LinearLayout>
+
+</LinearLayout>

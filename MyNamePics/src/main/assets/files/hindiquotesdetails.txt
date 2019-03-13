@@ -1,0 +1,89 @@
+{"quotesFileDetails":[
+				{
+				"name":"सालगिरह",
+				"id":"01", 
+				"file":"anniversary.txt"
+				},
+				{
+				"name":"अभिवृत्ति",
+				"id":"02", 
+				"file":"attitude.txt"
+				},
+				{
+				"name":"बेवफ़ाई",
+				"id":"03", 
+				"file":"bewfa.txt"
+				},
+				{
+				"name":"जन्मदिन",
+				"id":"04", 
+				"file":"birthday.txt"
+				},
+				{
+				"name":"दर्द",
+				"id":"05", 
+				"file":"dard.txt"
+				},
+				{
+				"name":"देश भक्ति",
+				"id":"06", 
+				"file":"deshbhakti.txt"
+				},
+				{
+				"name":"दिल ",
+				"id":"07", 
+				"file":"dil.txt"
+				},
+				{
+				"name":"दोस्ती ",
+				"id":"08", 
+				"file":"dosti.txt"
+				},
+				{
+				"name":"गुड मॉर्निंग ",
+				"id":"09", 
+				"file":"goodmorning.txt"
+				},
+				{
+				"name":"गुड नाईट ",
+				"id":"10", 
+				"file":"goodnight.txt"
+				},
+				{
+				"name":"इश्क़",
+				"id":"11", 
+				"file":"ishq.txt"
+				},
+				{
+				"name":"प्यार",
+				"id":"12", 
+				"file":"love.txt"
+				},
+				{
+				"name":"िस यू ",
+				"id":"13", 
+				"file":"missyou.txt"
+				},
+				{
+				"name":"रोमांटिक",
+				"id":"14", 
+				"file":"Romantic.txt"
+				},
+				{
+				"name":"दुखी",
+				"id":"15", 
+				"file":"sad.txt"
+				},
+				{
+				"name":"यादें",
+				"id":"16", 
+				"file":"yaad.txt"
+				},
+				{
+				"name":"सायरी",
+				"id":"17", 
+				"file":"twolinesayari.txt"
+				}
+			]
+				
+}

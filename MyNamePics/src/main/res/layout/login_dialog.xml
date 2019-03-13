@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="240dp"
+            android:layout_height="230dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="55dp"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/join_name_art"
+                    android:textSize="10dp" />
+
+                <com.facebook.login.widget.LoginButton
+                    android:id="@+id/login_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="2dp"
+                    android:visibility="visible" />
+
+                <com.google.android.gms.common.SignInButton
+                    android:id="@+id/gPlusSignIn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/email_edit_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Email"
+                    android:textColor="@color/black" />
+
+                <circularprogress.customViews.CircularProgressButton
+                    android:id="@+id/loginUsingEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/follow_button_shape"
+                    android:gravity="center"
+                    android:text="@string/login"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    app:finalCornerAngle="40dp"
+                    app:initialCornerAngle="0dp"
+                    app:spinning_bar_color="#ff0000ff"
+                    app:spinning_bar_padding="6dp"
+                    app:spinning_bar_width="4dp" />
+
+                <TextView
+                    android:id="@+id/responseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="responseText"
+                    android:visibility="invisible" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@mipmap/self_share" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="@string/create_your_photo_story"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

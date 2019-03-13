@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/vacant_background_color"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/top_bar_ac"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/action_bar_size"
+        android:background="#ff000000"
+        android:paddingLeft="@dimen/padding_normal"
+        android:paddingRight="@dimen/padding_normal">
+
+        <ImageButton
+            android:id="@+id/ib_efct_back"
+            android:layout_width="@dimen/menu_item_size"
+            android:layout_height="@dimen/menu_item_size"
+            android:layout_centerVertical="true"
+            android:background="@drawable/btn_selector"
+            android:src="@mipmap/ic_cross" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/edit"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <ImageButton
+            android:id="@+id/ib_efct_apply"
+            android:layout_width="@dimen/menu_item_size"
+            android:layout_height="@dimen/menu_item_size"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/btn_selector"
+            android:src="@mipmap/ic_done" />
+
+        <ImageButton
+            android:id="@+id/ib_efct_reset"
+            android:layout_width="@dimen/menu_item_size"
+            android:layout_height="@dimen/menu_item_size"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/ib_efct_apply"
+            android:background="@drawable/btn_selector"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ad_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_bar_ac"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/ad_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/admob_bannerId"
+            android:visibility="gone"/>
+       <!-- <com.mobfox.sdk.bannerads.Banner
+            xmlns:mobfox="http://schemas.android.com/apk/lib/com.mobfox.sdk"
+            android:id="@+id/banner"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            mobfox:enableLocation="true"/>-->
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/main_rel_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ad_container"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="5dp">
+
+        <ImageView
+            android:id="@+id/actualimg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <FrameLayout
+            android:id="@+id/rel_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.xiaopo.flying.sticker.StickerView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/sticker_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            app:showBorder="true"
+            app:showIcons="true" />
+
+        <RelativeLayout
+            android:id="@+id/borderView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+    <com.editor.panel.EditorPanel
+        android:id="@+id/panel_filter_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/view_background_activity">
+
+        <FrameLayout
+            android:id="@+id/frame_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:paddingBottom="@dimen/colz_extra_height" />
+    </com.editor.panel.EditorPanel>
+
+    <RelativeLayout
+        android:id="@+id/rel_content_temp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

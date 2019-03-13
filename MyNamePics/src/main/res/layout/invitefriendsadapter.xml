@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginTop="5dp"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/user_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <FrameLayout
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="2dp">
+                <ImageView
+                    android:id="@+id/user_dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/icon_72" />
+                <ImageView
+                    android:id="@+id/circle_crop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/circle_white" />
+            </FrameLayout>
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="name"
+                android:textAllCaps="false"
+                android:textColor="@color/picture_text_color"
+                android:textSize="@dimen/feed_frag_adap_username_textsize"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"/>
+
+        </LinearLayout>
+        <ImageButton
+            android:id="@+id/btn_invite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@mipmap/invite"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"/>
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="5dp"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/user_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/user_name_dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="3"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:padding="2dp">
+
+                    <ImageView
+                        android:id="@+id/user_dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/icon_72" />
+
+                    <ImageView
+                        android:id="@+id/circle_crop"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/circle_white" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:text="name"
+                        android:textAllCaps="false"
+                        android:textColor="@color/picture_text_color"
+                        android:textSize="@dimen/feed_frag_adap_username_textsize"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/time_userpost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textAllCaps="false"
+                        android:textSize="9sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <circularprogress.customViews.CircularProgressButton
+                    android:id="@+id/follow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:background="@drawable/follow_bg"
+                    android:gravity="center"
+                    android:text="@string/follow"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    app:finalCornerAngle="25dp"
+                    app:initialCornerAngle="0dp"
+                    app:spinning_bar_color="#ff0000ff"
+                    app:spinning_bar_padding="6dp"
+                    app:spinning_bar_width="4dp" />
+
+                <ImageButton
+                    android:id="@+id/feed_option_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:src="@mipmap/feed_item_option" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.webapi.common.MyImageView
+            android:id="@+id/postimage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user_layout"
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:scaleType="centerCrop" />
+
+        <TextureView
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user_layout"
+            android:layout_centerHorizontal="true"/>
+
+        <RelativeLayout
+            android:id="@+id/commentlikecont"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/postimage"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/comments_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:text="commentscount" />
+
+            <TextView
+                android:id="@+id/like_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/comments_count"
+                android:text="likescount" />
+
+            <circularprogress.customViews.CircularProgressImageButton
+                android:id="@+id/likethumb"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="@android:color/transparent"
+                android:gravity="center_horizontal"
+                android:src="@mipmap/like"
+                app:finalCornerAngle="40dp"
+                app:initialCornerAngle="0dp"
+                app:spinning_bar_color="#ff0000ff"
+                app:spinning_bar_padding="3dp"
+                app:spinning_bar_width="3dp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/commentlikecont"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginRight="20dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:id="@+id/text_feedada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/picture_text_color" />
+
+            <TextView
+                android:id="@+id/hashtag_feedada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/c7" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

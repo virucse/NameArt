@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/vacant_background_color"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/action_bar_size"
+        android:background="@color/view_background_activity"
+        android:gravity="fill_horizontal">
+
+        <ImageButton
+            android:id="@+id/ib_ip_back"
+            android:layout_width="@dimen/menu_item_size"
+            android:layout_height="@dimen/menu_item_size"
+            android:background="@drawable/btn_selector"
+            android:contentDescription="@string/app_name"
+            android:onClick="onClick"
+            android:src="@mipmap/ic_cross"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/menu_item_size"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="@string/choose_image"
+            android:textColor="#ffffff"
+            android:textSize="21sp" />
+
+        <ImageButton
+            android:id="@+id/ib_ip_gallery"
+            android:layout_width="@dimen/menu_item_size"
+            android:layout_height="@dimen/menu_item_size"
+            android:background="@drawable/btn_selector"
+            android:contentDescription="@string/app_name"
+            android:onClick="onClick"
+            android:src="@mipmap/icon_72"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ad_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/ad_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/admob_bannerId" />
+       <!-- <com.mobfox.sdk.bannerads.Banner
+            xmlns:mobfox="http://schemas.android.com/apk/lib/com.mobfox.sdk"
+            android:id="@+id/banner"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            mobfox:enableLocation="true"
+            android:visibility="gone"/>-->
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.0"
+        android:padding="4dp">
+
+        <ListView
+            android:id="@+id/lv_ip_album"
+            android:layout_width="100dp"
+            android:layout_height="match_parent" />
+
+        <GridView
+            android:id="@+id/gv_ip_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/lv_ip_album"
+            android:numColumns="3" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/show_im"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/view_background_activity"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/menu_item_size"
+            android:background="#ff000000"
+            android:paddingLeft="@dimen/margin_extra_short"
+            android:paddingRight="@dimen/margin_extra_short">
+
+            <ImageButton
+                android:id="@+id/ib_ip_clear"
+                android:layout_width="@dimen/menu_item_size"
+                android:layout_height="@dimen/menu_item_size"
+                android:layout_centerVertical="true"
+                android:background="@drawable/btn_selector"
+                android:onClick="onClick"
+                android:scaleType="center"
+                android:src="@mipmap/ic_clear_all" />
+
+            <TextView
+                android:id="@+id/tv_ip_count"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin_short"
+                android:layout_toRightOf="@+id/ib_ip_clear"
+                android:gravity="fill_horizontal"
+                android:padding="2dp"
+                android:text="0"
+                android:textColor="#ffffff"
+                android:textSize="32sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="4dp"
+                android:layout_toRightOf="@+id/tv_ip_count"
+                android:gravity="fill_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ip_text_selected"
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_ip_max"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/max_to_d_photos"
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_ip_next"
+                android:layout_width="60dp"
+                android:layout_height="28dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/round_selector"
+                android:onClick="onNextClick"
+                android:text="Next"
+                android:textColor="#4c4c4c" />
+        </RelativeLayout>
+
+        <com.formationapps.widget.HorizontalListView
+            android:id="@+id/hlv_ip"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_picker_height" />
+    </LinearLayout>
+</LinearLayout>

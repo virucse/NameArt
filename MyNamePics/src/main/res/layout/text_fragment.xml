@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/action_bar_size"
+        android:background="@color/colorPrimary"
+        android:paddingLeft="@dimen/padding_normal"
+        android:paddingRight="@dimen/padding_normal">
+
+        <ImageButton
+            android:id="@+id/ib_tf_discard"
+            android:layout_width="@dimen/menu_item_size"
+            android:layout_height="@dimen/menu_item_size"
+            android:layout_centerVertical="true"
+            android:background="@drawable/btn_selector"
+            android:scaleType="centerInside"
+            android:src="@mipmap/close_icon_new" />
+
+        <ImageButton
+            android:id="@+id/ib_tf_apply"
+            android:layout_width="@dimen/menu_item_size"
+            android:layout_height="@dimen/menu_item_size"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/btn_selector"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_mark" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_st_main_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/v_st_divider"
+        android:layout_marginTop="@dimen/action_bar_size"
+        android:background="#33333333">
+
+        <EditText
+            android:id="@+id/edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:cursorVisible="true"
+            android:focusableInTouchMode="true"
+
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/v_st_divider"
+        android:layout_width="fill_parent"
+        android:layout_height="1.0dip"
+        android:layout_above="@+id/ln_vts_menu_view"
+        android:background="#ffc4c4c4" />
+
+    <LinearLayout
+        android:id="@+id/ln_vts_menu_view"
+        android:layout_width="fill_parent"
+        android:layout_height="48.0dip"
+        android:layout_above="@+id/text_menu_content_view"
+        android:background="@color/c13"
+        android:clickable="true"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/ib_st_keypad"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_selector"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_keyboard_" />
+
+        <ImageButton
+            android:id="@+id/ib_st_font"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_selector"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_text2" />
+
+        <ImageButton
+            android:id="@+id/ib_st_tcolor"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_selector"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_text_color_style" />
+
+        <ImageButton
+            android:id="@+id/ib_st_tbg"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_selector"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_text_background" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/text_menu_content_view"
+        android:layout_width="fill_parent"
+        android:layout_height="200.0dip"
+        android:layout_alignParentBottom="true"
+        android:background="@color/background_color"
+        android:clickable="true">
+
+        <include
+            android:id="@+id/vst_font_view"
+            layout="@layout/layout_st_font" />
+
+        <include
+            android:id="@+id/vst_tcolor_view"
+            layout="@layout/layout_st_tcolor"
+            android:visibility="gone" />
+
+        <include
+            android:id="@+id/vts_tbg_view"
+            layout="@layout/layout_st_tbg"
+            android:visibility="gone" />
+    </RelativeLayout>
+</RelativeLayout>

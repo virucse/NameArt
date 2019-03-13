@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <ImageView
+        android:id="@+id/image_image_text"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:scaleType="centerInside"
+        android:src="@mipmap/icon_72" />
+
+    <TextView
+        android:id="@+id/text_image_text"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:gravity="center"
+        android:text="vhvhvhvhvhvv"
+        android:textColor="@android:color/white" />
+</LinearLayout>

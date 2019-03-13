@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '28.0.3'
+
+    defaultConfig {
+        minSdkVersion 17
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        /*ndk {
+            moduleName "genius_blur"
+            ldLibs "log", "jnigraphics"
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86' // <- only the supported ones
+        }*/
+    }
+    sourceSets {
+        main {
+            jni.srcDirs = ['libs']
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    externalNativeBuild {
+        ndkBuild {
+            path 'src/main/jni/Android.mk'
+        }
+    }
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+}
+
+tasks.all { task ->
+    if (task.name.startsWith('compile') && task.name.endsWith('Ndk')) {
+        task.enabled = false
+    }
+}

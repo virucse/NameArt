@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#00000000</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="picsDreamPrimaryColor">#333333</color>
+    <color name="picsDreamDarkColor">#454545</color>
+
+    <color name="color_to_diseable">#8aaa</color>
+
+    <color name="background_color">#ebebeb</color>
+    <color name="bottom_strip_color">#dbdada</color>
+    <color name="black_color">#FF000000</color>
+
+    <color name="aleart_bg_color">#ff1c1c1c</color>
+
+    //used in eithor in pip or collage
+    <color name="view_background_activity">#ff000000</color>
+    <color name="vacant_background_color">#1d1c2c</color>
+    <color name="panel_background">#ff000000</color>
+
+    <color name="white">#ffffffff</color>
+    <color name="tab">#ffff6600</color>
+    <color name="c1">#ffff5733</color>
+    <color name="c13">#ff0f0f0f</color>
+    <color name="c7">#ffff69b4</color>
+
+    //#################################
+    <color name="feed_background">#fff9f9f9</color>
+    <color name="web_api_background">#fff9f9f9</color>
+    <color name="web_strip_color">#fff5f5f5</color>
+    <color name="picture_text_color">#ff1e1d1d</color>
+
+    //##############for circular progress
+    <color name="color_button_default">#FFA000</color>
+    <color name="green">#8BC34A</color>
+
+    <!--used in background manager resource as COLOR MODE-->
+    <color name="color_cd1">#fff3f1</color>
+    <color name="color_cd2">#f7e6c3</color>
+    <color name="color_cd3">#f8f5c2</color>
+    <color name="color_cd4">#ddc7f7</color>
+    <color name="color_cd5">#ecc1f4</color>
+    <color name="color_cd6">#d273da</color>
+    <color name="color_cd7">#f7c5d8</color>
+    <color name="color_cd8">#f9a8a4</color>
+    <color name="color_cd9">#f98ab7</color>
+    <color name="color_cd10">#ec71a8</color>
+    <color name="color_cd11">#b0a5f7</color>
+    <color name="color_cd12">#9968ed</color>
+    <color name="color_cd13">#ef586e</color>
+    <color name="color_cd14">#8cd1e4</color>
+    <color name="color_cd15">#c6df44</color>
+    <color name="color_cd16">#6cce9e</color>
+    <color name="color_cd17">#eae560</color>
+    <color name="color_cd18">#a3a3a3</color>
+    <color name="color_cd19">#ef6d59</color>
+    <color name="color_cd20">#6d994d</color>
+    <color name="color_cd21">#fdc00c</color>
+    <color name="color_cd22">#f78320</color>
+    <color name="color_cd23">#86408c</color>
+    <color name="color_cd24">#683fb1</color>
+    <color name="color_cd25">#2b61ab</color>
+    <color name="color_cd26">#705945</color>
+    <color name="color_cd27">#735744</color>
+    <color name="color_cd28">#767576</color>
+    <color name="color_cd29">#4d494b</color>
+
+    <!--used as background manager resource-->
+    <color name="gradient_1_1">#ecc60a</color>
+    <color name="gradient_1_2">#7be1cd</color>
+    <color name="gradient_2_1">#e9abcc</color>
+    <color name="gradient_2_2">#b0c4ef</color>
+    <color name="gradient_3_1">#e3e6be</color>
+    <color name="gradient_3_2">#023769</color>
+    <color name="gradient_4_1">#f4f703</color>
+    <color name="gradient_4_2">#de1394</color>
+    <color name="gradient_5_1">#f1cbb9</color>
+    <color name="gradient_5_2">#95c4f4</color>
+    <color name="gradient_6_1">#e75c85</color>
+    <color name="gradient_6_2">#60c2e6</color>
+    <color name="gradient_7_1">#fbfd0a</color>
+    <color name="gradient_7_2">#02e7d4</color>
+    <color name="gradient_8_1">#f2fd1a</color>
+    <color name="gradient_8_2">#92d8ef</color>
+    <color name="gradient_9_1">#ec9715</color>
+    <color name="gradient_9_2">#f1e25a</color>
+    <color name="gradient_10_1">#014056</color>
+    <color name="gradient_10_2">#03e6d3</color>
+    <color name="gradient_11_1">#a4eef7</color>
+    <color name="gradient_11_2">#40669c</color>
+    <color name="gradient_12_1">#ff8875</color>
+    <color name="gradient_12_2">#e41272</color>
+    <color name="gradient_13_1">#ede7d9</color>
+    <color name="gradient_13_2">#78203b</color>
+    <color name="gradient_14_1">#32914e</color>
+    <color name="gradient_14_2">#54badc</color>
+    <color name="gradient_15_1">#f757b4</color>
+    <color name="gradient_15_2">#5e935c</color>
+    <color name="gradient_16_1">#ff4f2a</color>
+    <color name="gradient_16_2">#ed9714</color>
+    <color name="gradient_17_1">#de5d88</color>
+    <color name="gradient_17_2">#fcb994</color>
+    <color name="gradient_18_1">#222387</color>
+    <color name="gradient_18_2">#24c9cf</color>
+    <color name="gradient_19_1">#17966b</color>
+    <color name="gradient_19_2">#93fab9</color>
+    <color name="gradient_20_1">#ffca38</color>
+    <color name="gradient_20_2">#ff8006</color>
+    <color name="gradient_21_1">#f11522</color>
+    <color name="gradient_21_2">#f79989</color>
+    <color name="gradient_22_1">#094c74</color>
+    <color name="gradient_22_2">#83d6cc</color>
+    <color name="gradient_23_1">#e5e7c1</color>
+    <color name="gradient_23_2">#2bbde2</color>
+    <color name="gradient_24_1">#ac3c85</color>
+    <color name="gradient_24_2">#4b5c8c</color>
+    <color name="gradient_25_1">#43849b</color>
+    <color name="gradient_25_2">#592487</color>
+    <color name="gradient_26_1">#ce9b9d</color>
+    <color name="gradient_26_2">#d7e0fc</color>
+    <color name="gradient_27_1">#104e5b</color>
+    <color name="gradient_27_2">#70b17c</color>
+    <color name="gradient_28_1">#e43e5d</color>
+    <color name="gradient_28_2">#f4e4ad</color>
+    <color name="gradient_29_1">#7676bf</color>
+    <color name="gradient_29_2">#3183be</color>
+    <color name="gradient_30_1">#ce2621</color>
+    <color name="gradient_30_2">#435494</color>
+
+    <color name="app_color">#ff32dac3</color>
+
+    <color name="black">#ff000000</color>
+
+    <color name="red_point">#ffff5353</color>
+
+    <color name="transparent">#00ffffff</color>
+
+</resources>

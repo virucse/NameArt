@@ -1,0 +1,134 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/adConatiner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+        <com.google.android.gms.ads.AdView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/admob_bannerId" />
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:layout_below="@+id/adConatiner"
+        android:id="@+id/frameLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp">
+
+        <ImageView
+            android:id="@+id/imgImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_72"/>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:id="@+id/facebookshare"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/facebook" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/facebook"
+                android:textColor="@android:color/black"
+               />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/whatsappshare"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/whatsapp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/whatsapp"
+                android:textColor="@android:color/black"
+               />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/instagram"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_centerInParent="true"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/instagram" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/instagram"
+                android:textColor="@android:color/black"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/allshare"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/more_share" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/share"
+                android:textColor="@android:color/black"
+                android:maxLines="1"
+               />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

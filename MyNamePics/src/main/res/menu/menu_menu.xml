@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_rate_app"
+        android:orderInCategory="300"
+        android:title="@string/action_rate_text" />
+    <item
+        android:id="@+id/action_share_app"
+        android:orderInCategory="300"
+        android:title="@string/action_share_app_text" />
+    <item
+        android:id="@+id/action_email_app"
+        android:orderInCategory="300"
+        android:title="@string/email_app_to_friends_text" />
+    <item
+        android:id="@+id/action_invite_frnds"
+        android:orderInCategory="300"
+        android:title="@string/invite_facebook_friends"
+        android:visible="false"/>
+    <item
+        android:id="@+id/action_suggestion_app"
+        android:orderInCategory="300"
+        android:title="@string/suggestion_about_app_text" />
+    <item
+        android:id="@+id/privacy_policy_app"
+        android:orderInCategory="300"
+        android:title="@string/privacy_policy" />
+    <item
+        android:id="@+id/remove_ads"
+        android:orderInCategory="300"
+        android:title="@string/remove_ads"
+        android:visible="true" />
+    <item
+        android:id="@+id/SignOut"
+        android:orderInCategory="300"
+        android:title="@string/signout"
+        android:visible="false" />
+</menu>

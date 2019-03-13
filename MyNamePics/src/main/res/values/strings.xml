@@ -1,0 +1,271 @@
+<resources>
+    <string name="app_name">Name Art</string>
+    <string name="ads_help_keep">Ads help keep Name Art as a free app.\nUpgrade to premium plan to remove ads on android</string>
+    <string name="upgrade">Upgrade</string>
+    <string name="art">Art</string>
+    <string name="grid">Grid</string>
+    <string name="edit">Edit</string>
+    <string name="action_save">Save</string>
+    <string name="action_share">Share</string>
+    <string name="more_apps_text">More Apps</string>
+    <string name="share_on_this">Share On following</string>
+    <string name="firebase_base_url">gs://my-name-pics-name-art.appspot.com/</string>
+    <string name="again_click_to_exit">Press BACK 2 times simultaneously to exit from app</string>
+    <string name="action_rate_text">Rate App</string>
+    <string name="action_share_app_text">Share App</string>
+    <string name="email_app_to_friends_text">Email App to Friends</string>
+    <string name="suggestion_about_app_text">Feedback</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="remove_ads">Remove Ads</string>
+    <string name="signout">Sign Out</string>
+    <string name="edit_your_art_text">Create Art</string>
+    <string name="preview_text">Preview</string>
+    <string name="add_text_text">Add Text</string>
+    <string name="symbol">Symbol</string>
+    <string name="photo">Photo</string>
+    <string name="bg">BG</string>
+    <string name="creation">Creation</string>
+    <string name="cancle">cancle</string>
+    <string name="update">Update</string>
+    <string name="background">Bg</string>
+    <string name="insert_photo">Insert Photo</string>
+    <string name="photo_down">Download BG</string>
+    <string name="magic_brush">Brush</string>
+    <string name="bg_color">BG Color</string>
+    <string name="stickers">Stickers</string>
+    <string name="crop">Crop</string>
+    <string name="text">Text</string>
+    <string name="quotes">Quotes</string>
+    <string name="back">Back</string>
+    <string name="hindi">हिंदी</string>
+    <string name="english">English</string>
+    <string name="font">Fonts</string>
+    <string name="font_down">Download Fonts</string>
+    <string name="texture">Texture</string>
+    <string name="add_new_text">Add Text</string>
+    <string name="creative">Creative</string>
+    <string name="bold_format">Bold</string>
+    <string name="italic_format">Italic</string>
+    <string name="underline_format">Underline</string>
+    <string name="shadow">Shadow</string>
+    <string name="left_align">Left Align</string>
+    <string name="right_align">Right Align</string>
+    <string name="center_align">Center Align</string>
+    <string name="text_size">Text Size</string>
+    <string name="text_color">Color</string>
+    <string name="template">Templates</string>
+    <string name="rate_text">Rate</string>
+    <string name="share_text">Share</string>
+    <string name="later_text">Later</string>
+    <string name="valentine">Valentine</string>
+    <string name="nost">New</string>
+    <string name="cool">Cool</string>
+    <string name="heart">Hearts</string>
+    <string name="couple">Couple</string>
+    <string name="dragon">Dragon</string>
+    <string name="feathere">Feathers</string>
+    <string name="gallery">Gallery</string>
+    <string name="extra">Extra</string>
+    <string name="dots">Dots</string>
+    <string name="stroks">Stroks</string>
+    <string name="loading">Loading Please wait...</string>
+    <string name="join_name_art">Join Name Art Now</string>
+    <string name="create_your_photo_story">Create Photo Story\nShare with Name Art</string>
+    <string name="save_dialog_title"></string>
+    <string name="save_dialog_message">Would you like to apply filters</string>
+    <string name="backpress_message">Are You Sure to go back?</string>
+    <string name="are_you_sure_exit">Are you sure to exit?</string>
+    <string name="instagram">Instagram</string>
+    <string name="facebook">Facebook</string>
+    <string name="whatsapp">Whatsapp</string>
+    <string name="delete_text">Delete</string>
+    <string name="yes_text">Yes</string>
+    <string name="no_text">No</string>
+    <string name="filters_text">Filters</string>
+    <string name="facebook_app_id">273934279709265</string>
+    <string name="fb_login_protocol_scheme">fb273934279709265</string>
+    <string name="email_subject">, Feedback</string>
+    <string name="email_msg">Hi,this app is really good .My Suggestions are...</string>
+    <string name="chooser_text">Send Feedback with Gmail:</string>
+    <string name="email_send_choose_text">Send Email:</string>
+    <string name="app_update_message">A new Version of this app is available.Please update app to latest version.</string>
+    <string name="app_update_title">App Update Available</string>
+    <string name="okk_text">Ok</string>
+    <string name="message_text">Message</string>
+    <string name="internet_error_message">It seems that your internet connection is not working , please make sure that your
+                internet is working.</string>
+    <string name="alert">Alert</string>
+    <string name="apprestrictmsg">This version of app is not supportable,please update to latest version.</string>
+
+    //###############################################user sharing setting######################
+    <string name="login">Login</string>
+    <string name="share">Share</string>
+    <string name="posts">Posts</string>
+    <string name="following">Following</string>
+    <string name="followers">Followers</string>
+    <string name="comments">Comments</string>
+    <string name="likes">Likes</string>
+    <string name="like">Like</string>
+    <string name="liked">Liked</string>
+    <string name="feeds">Feeds</string>
+    <string name="follow">Follow</string>
+    <string name="add_comment">Add a Comment</string>
+    <string name="say_somthings">Say something...</string>
+    <string name="complete_profile">Complete Profile</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="file_not_selected_update_profile">Please select image atleast...</string>
+    <string name="select_image">Select Picture</string>
+    <string name="block_user_action">Block User</string>
+    <string name="are_you_sure_to_block_user">Are You Sure To Block User?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="delete_post_action">Delete Post</string>
+    <string name="are_you_sure_to_delete_post">Are You Sure To Delete Post</string>
+    <string name="check_post">Check Post</string>
+    //###############################################user sharing setting end######################
+
+    <string name="hint_dialog_title">Hint:</string>
+    <string name="hint_dialog_message">Please draw a close loop over image to crop</string>
+    <string name="hint_dialog_ok">Ok</string>
+    <string name="feature_dialog_title">Alert</string>
+    <string name="feature_dialog_message">Are You Sure To Crop</string>
+    <string name="feature_dialog_yes_button_text">Yes</string>
+    <string name="feature_dialog_no_button_text">No</string>
+    <string name="onbitmapnull">Input Image is null,please try with another.</string>
+
+
+    //################used in effects,collage,pip
+    <string name="pip">PIP</string>
+    <string name="frame">Frame</string>
+    <string name="blur">Blur</string>
+    <string name="effects">Effects</string>
+    <string name="reset">Reset</string>
+    <string name="change">Change</string>
+    <string name="filter">Filters</string>
+    <string name="effects2">Effects</string>
+    <string name="overlay">Overlay</string>
+    <string name="texture2">Texture</string>
+    <string name="brightness">Brightness</string>
+    <string name="contrast">Contrast</string>
+    <string name="sharpness">Sharpness</string>
+    <string name="balance">Balance</string>
+    <string name="saturation">Saturation</string>
+    <string name="highlights">Highlight</string>
+    <string name="shadow2">Shadow</string>
+    <string name="temperature">Temperature</string>
+    <string name="bg_colorO">Color</string>
+    <string name="bg_gradient">Gradient</string>
+    <string name="bg_material">Material</string>
+    <string name="bg_deco">Decoration</string>
+    <string name="bg_pattern">Pattern</string>
+    <string name="bg_texture">Texture</string>
+    <string name="rot_left">Left</string>
+    <string name="rot_right">Right</string>
+    <string name="flip_h">Horizontal</string>
+    <string name="flip_v">Vertical</string>
+    <string name="cl_layout">Layout</string>
+    <string name="cl_bg">bg</string>
+    <string name="cl_adjust">Adjust</string>
+    <string name="cl_ratio">Ratio</string>
+    <string name="cl_frame">Frame</string>
+    <string name="cl_sticker">Stickers</string>
+    <string name="cl_text">Text</string>
+    <string name="standard_font">Standard Font</string>
+    <string name="hindi_font">Hindi Font</string>
+    <string name="stylish_pack1">S Pack 1</string>
+    <string name="stylish_pack2">S Pack 2</string>
+    <string name="stylish_pack3">S Pack 3</string>
+    <string name="stylish_pack4">S Pack 4</string>
+    <string name="stylish_pack5">S Pack 5</string>
+    <string name="stylish_pack6">S Pack 6</string>
+    <string name="stylish_pack7">S Pack 7</string>
+    <string name="comming_soon">Comming Soon</string>
+
+    //###############used in gallery
+    <string name="choose_image">Choose Image</string>
+    <string name="ip_text_selected">Selected</string>
+    <string name="max_to_d_photos">Max up to %d Photos</string>
+
+
+    <string-array name="color_array">
+        <item>#fc7f02</item>
+        <item>#eae086</item>
+        <item>#02eded</item>
+        <item>#f57ef1</item>
+        <item>#dec6a1</item>
+        <item>#9e6845</item>
+        <item>#af4e35</item>
+        <item>#f2a1ac</item>
+        <item>#89463f</item>
+        <item>#e4e0e0</item>
+        <item>#8e5138</item>
+        <item>#dfd1d6</item>
+        <item>#f93a3a</item>
+        <item>#cc1e8d</item>
+        <item>#8f8f37</item>
+        <item>#685a51</item>
+        <item>#d9bdd9</item>
+        <item>#6fc76f</item>
+        <item>#94755b</item>
+        <item>#7598bc</item>
+        <item>#a076f7</item>
+        <item>#f9b30b</item>
+        <item>#fdf5e4</item>
+        <item>#4372ff</item>
+        <item>#ff9970</item>
+        <item>#acc6e7</item>
+        <item>#6666c7</item>
+        <item>#b2eab2</item>
+        <item>#b39f96</item>
+        <item>#b0e15d</item>
+        <item>#101010</item>
+        <item>#fcf9f9</item>
+        <item>#fa0707</item>
+        <item>#07f907</item>
+        <item>#0606f5</item>
+    </string-array>
+
+    <!-- ****************************real name art ad units*******************************************-->
+    <string name="admob_appId">ca-app-pub-8772517210587236~6082461507</string>
+    <string name="admob_interstId">ca-app-pub-8772517210587236/4466127509</string>
+    <string name="admob_bannerId">ca-app-pub-8772517210587236/7559194706</string>
+    <string name="admob_rewarded">ca-app-pub-8772517210587236/3319008420</string>
+    <string name="admob_interstitial_templates">ca-app-pub-8772517210587236/3435956948</string>
+    <string name="admob_nativeId_feed">ca-app-pub-8772517210587236/5458597004</string>
+    <string name="admob_nativeId">ca-app-pub-8772517210587236/9674062232</string>
+    <string name="admob_interstitial_share">ca-app-pub-8772517210587236/4102827897</string>
+    <string name="startApp_appId">202593927</string>
+
+    <!-- ****************************test ad units please comment when you released*******************************************-->
+    <!--<string name="admob_appId">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="admob_nativeId">ca-app-pub-3940256099942544/8135179316</string>
+    <string name="admob_nativeId_feed">ca-app-pub-3940256099942544/8135179316</string>
+    <string name="admob_bannerId">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_interstId">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="admob_interstitial_templates">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="admob_rewarded">ca-app-pub-3940256099942544/5224354917</string>
+    <string name="admob_interstitial_share">ca-app-pub-3940256099942544/1033173712</string>-->
+
+    <string name="gif">GIF</string>
+    <string name="gif_quality_1">SIMPLE_FAST</string>
+    <string name="gif_quality_2">FAST</string>
+    <string name="gif_quality_3">NORMAL_LOW_MEMORY</string>
+    <string name="gif_quality_4">STABLE_HIGH_MEMORY</string>
+    <string name="delay">Delay</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="camera_face">Camera</string>
+
+    <string name="ok">OK</string>
+    <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
+    <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
+    <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
+
+    <string name="save_image_msg">Do you want to save Image ?</string>
+    <string name="not_support_media_codec">It seems MediaCodec is not supported on your device or API is below 4.3</string>
+    <string name="notification">Notification</string>
+    <string name="invite_facebook_friends">Invite Facebook Friends</string>
+
+
+</resources>

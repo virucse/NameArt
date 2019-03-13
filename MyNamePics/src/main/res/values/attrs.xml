@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_fill_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="StickerView">
+        <attr name="showIcons" format="boolean" />
+        <attr name="showBorder" format="boolean" />
+        <attr name="bringToFrontCurrentSticker" format="boolean" />
+        <attr name="borderColor" format="color" />
+        <attr name="borderAlpha" format="integer" />
+    </declare-styleable>
+
+
+    <!--for circular view-->
+    <declare-styleable name="CircularProgressButton">
+        <attr name="spinning_bar_width" format="dimension" />
+        <attr name="spinning_bar_color" format="color" />
+        <attr name="spinning_bar_padding" format="dimension" />
+        <attr name="initialCornerAngle" format="dimension" />
+        <attr name="finalCornerAngle" format="dimension" />
+        <attr name="bg" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="RotateLoading">
+        <attr name="loading_width" format="dimension"/>
+        <attr name="loading_color" format="color"/>
+        <attr name="shadow_position" format="integer"/>
+        <attr name="loading_speed" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="CradleBall">
+        <attr name="cradle_ball_color" format="color" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/vacant_background_color"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/vacant_background_color"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/top_bar_ac"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/action_bar_size"
+            android:background="#ff000000"
+            android:paddingLeft="@dimen/padding_normal"
+            android:paddingRight="@dimen/padding_normal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <RelativeLayout
+                    android:id="@+id/erase_savephoto"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.33"
+                    android:clickable="true">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:src="@mipmap/clear" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.33">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:maxLines="1"
+                        android:text="@string/edit_your_art_text"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/save_savephoto"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.33"
+                    android:clickable="true">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@mipmap/ic_save_black_24dp" />
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ad_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <com.google.android.gms.ads.AdView
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/ad_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/admob_bannerId"
+                android:visibility="gone"/>
+            <!--<com.mobfox.sdk.bannerads.Banner
+                xmlns:mobfox="http://schemas.android.com/apk/lib/com.mobfox.sdk"
+                android:id="@+id/banner"
+                android:layout_width="320dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                mobfox:enableLocation="true"/>-->
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.0">
+
+            <RelativeLayout
+                android:id="@+id/main_editor_area"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="70dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp">
+
+                <RelativeLayout
+                    android:id="@+id/lnr_draw"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/img_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/white"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/img_bg_template"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop" />
+
+                    <nonworkingcode.brusheffects.OverlayBrushView
+                        android:id="@+id/overlaybrushview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <com.xiaopo.flying.sticker.StickerView xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/sticker_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        app:showBorder="true"
+                        app:showIcons="true" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <com.formationapps.artpanel.TemplatePanel
+                android:id="@+id/panel_artmenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/view_background_activity">
+
+                <FrameLayout
+                    android:id="@+id/frame_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|start"
+                    android:paddingBottom="@dimen/colz_extra_height" />
+            </com.formationapps.artpanel.TemplatePanel>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</FrameLayout>

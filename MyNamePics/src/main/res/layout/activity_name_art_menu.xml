@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_name_art_menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context="com.formationapps.nameart.NameArtMenu">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="40dp"
+        android:layout_toLeftOf="@+id/menu_menu"
+        android:paddingTop="-20dp"
+        android:visibility="invisible" />
+
+    <RelativeLayout
+        android:id="@+id/menu_menu"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentRight="true">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginTop="80dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.google.android.gms.plus.PlusOneButton xmlns:plus="http://schemas.android.com/apk/lib/com.google.android.gms.plus"
+                android:id="@+id/plus_one_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                plus:annotation="inline"
+                plus:size="standard" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <com.facebook.share.widget.LikeView
+                    android:id="@+id/fb_like_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center" />
+
+                <com.facebook.share.widget.ShareButton
+                    android:id="@+id/fb_share_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/start_button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp">
+
+        <ImageView
+            android:id="@+id/menu_template_button"
+            android:layout_width="120dp"
+            android:layout_height="90dp" />
+
+        <ImageView
+            android:id="@+id/menu_start_button"
+            android:layout_width="120dp"
+            android:layout_height="90dp"
+            android:layout_alignParentRight="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/menu_start_button"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/webApi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onWebApiClick"
+                android:text="Web Api Test" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/moreapps_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/start_button_layout"
+        android:paddingTop="20dp">
+
+        <TextView
+            fontPath="fonts/h9.ttf"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:drawableBottom="@mipmap/line"
+            android:gravity="center_horizontal"
+            android:text="@string/more_apps_text"
+            android:textSize="22sp"
+            tools:ignore="MissingPrefix" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/moreapps_layout"
+        android:layout_marginBottom="60dp">
+
+        <GridView
+            android:id="@+id/grid_view_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:numColumns="3"
+            android:stretchMode="columnWidth"></GridView>
+    </RelativeLayout>
+
+    <WebView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/webView_pp"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            ads:adSize="SMART_BANNER"
+            ads:adUnitId="@string/admob_bannerId" />
+
+        <com.startapp.android.publish.ads.banner.Banner
+            android:id="@+id/startAppBanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/template_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>

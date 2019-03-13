@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/rl_filter_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <RelativeLayout
+                android:id="@+id/back_filter_activity"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/close_icon_new" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/filters_text"
+                    android:textColor="@color/bottom_strip_color"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/done_filter_activity"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ic_mark" />
+            </RelativeLayout>
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
+
+
+    <ImageView
+        android:id="@+id/image_view_filter"
+        android:layout_width="350dp"
+        android:layout_height="500dp"
+        android:layout_centerInParent="true"
+        android:padding="10dp"
+        android:src="@mipmap/icon_72" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:onClick="filterIconClick"
+            android:src="@mipmap/ic_filters"
+            android:text="Filter"
+            android:textColor="#ffffff" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:onClick="effectsIconClick"
+            android:src="@mipmap/ic_effects"
+            android:text="Effects"
+            android:textColor="#ffffff" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:onClick="overlayIconClick"
+            android:src="@mipmap/ic_overlay_light"
+            android:text="Overlay"
+            android:textColor="#ffffff" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:onClick="textureIconClick"
+            android:src="@mipmap/ic_texture"
+            android:text="Texture"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></RelativeLayout>
+</RelativeLayout>

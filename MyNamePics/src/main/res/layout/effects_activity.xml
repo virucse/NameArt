@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/vacant_background_color"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/top_bar_ac"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/action_bar_size"
+        android:background="#01002a"
+        android:paddingLeft="@dimen/padding_normal"
+        android:paddingRight="@dimen/padding_normal">
+
+        <ImageButton
+            android:id="@+id/ib_efct_back"
+            android:layout_width="@dimen/menu_item_size"
+            android:layout_height="@dimen/menu_item_size"
+            android:layout_centerVertical="true"
+            android:background="@drawable/btn_selector"
+            android:src="@mipmap/ic_cross" />
+
+        <ImageButton
+            android:id="@+id/ib_efct_apply"
+            android:layout_width="@dimen/menu_item_size"
+            android:layout_height="@dimen/menu_item_size"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/btn_selector"
+            android:src="@mipmap/ic_done" />
+
+        <ImageButton
+            android:id="@+id/ib_efct_reset"
+            android:layout_width="@dimen/menu_item_size"
+            android:layout_height="@dimen/menu_item_size"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/ib_efct_apply"
+            android:background="@drawable/btn_selector"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ad_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_bar_ac"
+        android:minHeight="51dp"
+        android:gravity="center"
+        android:orientation="vertical">
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/ad_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/admob_bannerId"
+            android:visibility="visible"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/rel_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ad_container"
+        android:layout_marginBottom="120dp"
+        android:layout_marginTop="5dp" />
+
+    <nonworkingcode.effects.viewpanel.EffectPanel
+        android:id="@+id/panel_filter_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/view_background_activity" />
+</RelativeLayout>

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.formationapps.nameart">
+
+    <!--<uses-sdk
+        tools:replace="minSdkVersion"
+        tools:overrideLibrary="com.picsdream.picsdreamsdk"/>-->
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+   <!-- <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"
+        android:required="false"/>-->
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE"/>-->
+
+
+    <application
+        android:name="com.formationapps.nameart.App"
+        android:allowBackup="true"
+        android:icon="@mipmap/icon_72"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/PicsDreamTheme"
+        tools:replace="android:label"
+        android:networkSecurityConfig="@xml/network_security_config">
+
+        <uses-library
+            android:name="org.apache.http.legacy" android:required="false" />
+
+        <activity
+            android:name="com.formationapps.nameart.NameArtMenu"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.FolderActivity"/>
+        <activity android:name=".activity.PreviewActivity"/>
+        <activity
+            android:name="nonworkingcode.fcrop.activity.FeatureCutActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullScreen" />
+        <activity
+            android:name="com.formationapps.nameart.activity.AddText"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAddText" />
+        <activity
+            android:name="com.formationapps.nameart.activity.ArtActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/EditorTheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.formationapps.nameart.activity.TemplateActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/EditorTheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.editor.activity.EditorActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/EditorTheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activity.ShareActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="nonworkingcode.grid.activity.CollageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/EditorTheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="nonworkingcode.pip.activity.PIPActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/EditorTheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.gallery.activity.ImageSelectAcivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/EditorTheme" />
+        <activity
+            android:name="nonworkingcode.effects.activity.EffectActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/EditorTheme" />
+
+        <service
+            android:name="com.downloader.FileDownloadService"
+            android:enabled="true"
+            android:label="@string/app_name" />
+
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+
+        <receiver android:name=".helper.AlarmReceiver">
+            <intent-filter>
+                <action android:name="android.media.action.DISPLAY_NOTIFICATION.NAMEPICSNAMEART" />
+
+                <category android:name="android.intent.category.DEFAULT.NAMEPICSNAMEART" />
+            </intent-filter>
+        </receiver>
+
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <!-- facebook ads -->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationName"
+            android:value="@string/app_name" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider273934279709265"
+            android:exported="true" />
+        // this is done for inappersting ads
+        <!-- <meta-data
+             android:name="android.support.VERSION"
+             android:value="25.3.1"
+             tools:replace="android:value" />
+         <meta-data
+             android:name="com.inappertising.ads.PUBLISHER_ID"
+             android:value="formation" />
+         <meta-data
+             android:name="com.inappertising.ads.APPLICATION_KEY"
+             android:value="99152600" />
+         <meta-data
+             android:name="com.inappertising.ads.AFFILIATE_ID"
+             android:value="inappertising" />-->
+
+       <!-- <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />-->
+
+       <!-- <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="face" />-->
+
+
+        <activity android:name="com.gif.GIFActivity" />
+       <!-- <activity
+            android:name="com.facefilters.omoshiroilib.ui.CameraPreviewActivity"
+            android:theme="@style/AppBaseTheme" />
+        <activity
+            android:name="com.facefilters.omoshiroilib.ui.DecorateActivity"
+            android:theme="@style/AppBaseTheme" />
+        <activity
+            android:name="com.facefilters.omoshiroilib.debug.lab.FilterThumbActivity"
+            android:theme="@style/AppBaseTheme" />
+        <activity
+            android:name="com.facefilters.omoshiroilib.debug.teststmobile.MultitrackerActivity"
+            android:theme="@style/AppBaseTheme" />-->
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admob_appId"/>
+        <meta-data
+            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+            android:value="true"/>
+
+    </application>
+
+
+</manifest>

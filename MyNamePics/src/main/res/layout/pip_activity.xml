@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/vacant_background_color">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/vacant_background_color"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/top_bar_ac"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/action_bar_size"
+            android:background="@color/view_background_activity"
+            android:paddingLeft="@dimen/padding_normal"
+            android:paddingRight="@dimen/padding_normal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:text="@string/pip"
+                android:textColor="@android:color/white" />
+
+            <ImageButton
+                android:id="@+id/ib_edtr_flipX"
+                android:layout_width="@dimen/menu_item_size"
+                android:layout_height="@dimen/menu_item_size"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="120dp"
+                android:background="@drawable/btn_selector"
+                android:src="@mipmap/ic_cross" />
+
+            <ImageButton
+                android:id="@+id/ib_edtr_flipY"
+                android:layout_width="@dimen/menu_item_size"
+                android:layout_height="@dimen/menu_item_size"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="60dp"
+                android:background="@drawable/btn_selector"
+                android:src="@mipmap/ic_cross" />
+
+            <ImageButton
+                android:id="@+id/ib_edtr_save"
+                android:layout_width="@dimen/menu_item_size"
+                android:layout_height="@dimen/menu_item_size"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/btn_selector"
+                android:src="@mipmap/ic_done" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ad_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="51dp"
+            android:orientation="vertical">
+
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/ad_view"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/admob_bannerId"
+                android:visibility="visible"/>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="1.0">
+
+            <FrameLayout
+                android:id="@+id/rel_ed_root_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="80.0dip"
+                android:padding="3.0dip">
+
+                <FrameLayout
+                    android:id="@+id/rel_ed_work_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <nonworkingcode.pip.views.PIPView
+                        android:id="@+id/pipView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </FrameLayout>
+            </FrameLayout>
+
+            <nonworkingcode.pip.panel.PIPPanel
+                android:id="@+id/panel_edmenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/view_background_activity">
+
+                <FrameLayout
+                    android:id="@+id/frame_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|start"
+                    android:paddingBottom="@dimen/colz_extra_height" />
+            </nonworkingcode.pip.panel.PIPPanel>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+</FrameLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <layer-list>
+            <item android:bottom="1dp" android:drawable="@drawable/purchase_button_sele_item" android:left="1dp" android:right="1dp" android:top="1dp" />
+        </layer-list>
+    </item>
+    <item android:drawable="@android:color/transparent" android:state_pressed="false" />
+</selector>
