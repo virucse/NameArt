@@ -147,7 +147,7 @@ public class SymbolFragment extends Fragment {
                             SharedPreferences p = AppUtils.getSharedPref(activity);
                             SharedPreferences.Editor ed = p.edit();
                             ed.putInt(selectedIndexKey, position);
-                            ed.commit();
+                            ed.apply();
                         }
 
                         @Override

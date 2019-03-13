@@ -475,27 +475,28 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         if(mPostList!=null&&mPostList.size()>0){
             for (int i = 0; i < mPostList.size(); i++) {
                 if(mPostList.get(i) instanceof UnifiedNativeAdView){
-                    continue;
-                }
-                if (((FeedPost)mPostList.get(i)).user.id == userId) {
-                    if (isFollowing) {
-                        ((FeedPost)mPostList.get(i)).user.is_follow = true;
-                    } else {
-                        ((FeedPost)mPostList.get(i)).user.is_follow = false;
-                    }
-                    final MyViewHolder mvh = (MyViewHolder) mRecyclerView.findViewHolderForAdapterPosition(i);
-                    if (mvh != null) {
+                   // continue;
+                }else{
+                    if (((FeedPost)mPostList.get(i)).user.id == userId) {
                         if (isFollowing) {
-                            mvh.follow.setBackground(new ColorDrawable(Color.TRANSPARENT));
-                            mvh.follow.setTextColor(ContextCompat.getColor(mvh.context, R.color.black));
-                            mvh.follow.setText(R.string.following);
+                            ((FeedPost)mPostList.get(i)).user.is_follow = true;
                         } else {
-                            mvh.follow.setBackground(ContextCompat.getDrawable(mvh.context, R.drawable.follow_bg));
-                            mvh.follow.setTextColor(ContextCompat.getColor(mvh.context, R.color.white));
-                            mvh.follow.setText(R.string.follow);
+                            ((FeedPost)mPostList.get(i)).user.is_follow = false;
                         }
+                        final MyViewHolder mvh = (MyViewHolder) mRecyclerView.findViewHolderForAdapterPosition(i);
+                        if (mvh != null) {
+                            if (isFollowing) {
+                                mvh.follow.setBackground(new ColorDrawable(Color.TRANSPARENT));
+                                mvh.follow.setTextColor(ContextCompat.getColor(mvh.context, R.color.black));
+                                mvh.follow.setText(R.string.following);
+                            } else {
+                                mvh.follow.setBackground(ContextCompat.getDrawable(mvh.context, R.drawable.follow_bg));
+                                mvh.follow.setTextColor(ContextCompat.getColor(mvh.context, R.color.white));
+                                mvh.follow.setText(R.string.follow);
+                            }
+                        }
+                        notifyDataSetChanged();
                     }
-                    notifyDataSetChanged();
                 }
             }
         }else {
@@ -530,13 +531,15 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         if(mPostList!=null&&mPostList.size()>0){
             for (int i = 0; i < mPostList.size(); i++) {
                 if(mPostList.get(i) instanceof UnifiedNativeAdView){
-                    continue;
+                    //continue;
+                }else {
+                    if (((FeedPost)mPostList.get(i)).id == postId) {
+                        ((FeedPost)mPostList.get(i)).comments.count++;
+                        notifyDataSetChanged();
+                        break;
+                    }
                 }
-                if (((FeedPost)mPostList.get(i)).id == postId) {
-                    ((FeedPost)mPostList.get(i)).comments.count++;
-                    notifyDataSetChanged();
-                    break;
-                }
+
             }
         }else {
             for (int i = 0; i < mFeedDetails.posts.size(); i++) {

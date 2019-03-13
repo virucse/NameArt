@@ -74,7 +74,7 @@ public class AdsHelper {
                 @Override
                 public void onAdClosed() {
                     super.onAdClosed();
-                    mInterstitialAd.loadAd(new AdRequest.Builder().build());
+                    if(mInterstitialAd!=null)mInterstitialAd.loadAd(new AdRequest.Builder().build());
                 }
             });
         }else {
@@ -104,7 +104,7 @@ public class AdsHelper {
                 @Override
                 public void onAdClosed() {
                     super.onAdClosed();
-                    interstitialTemplates.loadAd(new AdRequest.Builder().build());
+                    if(interstitialTemplates!=null)interstitialTemplates.loadAd(new AdRequest.Builder().build());
                 }
             });
         }else {

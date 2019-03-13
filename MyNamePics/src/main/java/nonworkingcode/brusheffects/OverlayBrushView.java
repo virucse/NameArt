@@ -68,8 +68,10 @@ public class OverlayBrushView extends AppCompatImageView {
         if (screenBitmap != null && !screenBitmap.isRecycled()) {
             //screenBitmap.recycle();
         }
-        screenBitmap = Bitmap.createBitmap(getWidth(), getHeight(), Config.ARGB_8888);
-        setImageBitmap(this.screenBitmap);
+        if(getWidth()>0&&getHeight()>0){
+            screenBitmap = Bitmap.createBitmap(getWidth(), getHeight(), Config.ARGB_8888);
+            setImageBitmap(this.screenBitmap);
+        }
     }
 
     public void setBrushRes(BrushEffectLoad brushEffectLoad) {
