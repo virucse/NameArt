@@ -337,7 +337,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
             }
         });
 
-        holder.text.setText(feedPost.text + "");
+        holder.text.setText(feedPost.text);
         holder.optionItem.setTag("" + position);
         holder.optionItem.setOnClickListener(new View.OnClickListener() {
             @Override
