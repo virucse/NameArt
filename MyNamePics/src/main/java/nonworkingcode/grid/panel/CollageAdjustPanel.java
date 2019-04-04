@@ -28,11 +28,11 @@ public class CollageAdjustPanel extends BasicPanel {
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
             if (fromUser) {
                 if (seekBar.getId() == R.id.sb_col_shp_size) {
-                    CollageConst.collageView.setLineThickness(0.1f * (((float) progress) / 100.0f));
+                    if(CollageConst.collageView!=null)CollageConst.collageView.setLineThickness(0.1f * (((float) progress) / 100.0f));
                 } else if (seekBar.getId() == R.id.sb_col_shp_shadow) {
-                    CollageConst.collageView.setShadowSize(5.0f * (((float) progress) / 100.0f));
+                    if(CollageConst.collageView!=null)CollageConst.collageView.setShadowSize(5.0f * (((float) progress) / 100.0f));
                 } else if (seekBar.getId() == R.id.sb_col_shp_corner) {
-                    CollageConst.collageView.setCornerRadious(50.0f * (((float) progress) / 100.0f));
+                    if(CollageConst.collageView!=null)CollageConst.collageView.setCornerRadious(50.0f * (((float) progress) / 100.0f));
                 }
             }
         }

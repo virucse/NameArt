@@ -18,7 +18,7 @@
             android:background="@drawable/btn_selector"
             android:contentDescription="@string/app_name"
             android:onClick="onClick"
-            android:src="@mipmap/ic_cross"
+            android:src="@mipmap/back_arrow_white"
             android:visibility="gone" />
 
         <TextView
@@ -37,7 +37,7 @@
             android:background="@drawable/btn_selector"
             android:contentDescription="@string/app_name"
             android:onClick="onClick"
-            android:src="@mipmap/icon_72"
+            android:src="@mipmap/grid_on_white"
             android:visibility="gone" />
     </LinearLayout>
 
@@ -54,15 +54,6 @@
             android:layout_height="wrap_content"
             ads:adSize="BANNER"
             ads:adUnitId="@string/admob_bannerId" />
-       <!-- <com.mobfox.sdk.bannerads.Banner
-            xmlns:mobfox="http://schemas.android.com/apk/lib/com.mobfox.sdk"
-            android:id="@+id/banner"
-            android:layout_width="320dp"
-            android:layout_height="50dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            mobfox:enableLocation="true"
-            android:visibility="gone"/>-->
     </LinearLayout>
 
 
@@ -71,17 +62,27 @@
         android:layout_height="match_parent"
         android:layout_weight="1.0"
         android:padding="4dp">
-
-        <ListView
-            android:id="@+id/lv_ip_album"
+        <RelativeLayout
+            android:id="@+id/listgridcontainer"
             android:layout_width="100dp"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
+            <ListView
+                android:id="@+id/lv_ip_album"
+                android:layout_width="100dp"
+                android:layout_height="match_parent" />
+            <GridView
+                android:id="@+id/gd_ip_album"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:numColumns="3"
+                android:visibility="gone"/>
+        </RelativeLayout>
 
         <GridView
             android:id="@+id/gv_ip_photo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_toRightOf="@+id/lv_ip_album"
+            android:layout_toRightOf="@+id/listgridcontainer"
             android:numColumns="3" />
     </RelativeLayout>
 

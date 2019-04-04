@@ -60,6 +60,11 @@
         </activity>
         <activity android:name=".activity.FolderActivity"/>
         <activity android:name=".activity.PreviewActivity"/>
+
+        <activity android:name=".activity.BgRemoverActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/custom_actionbar"/>
+
         <activity
             android:name="nonworkingcode.fcrop.activity.FeatureCutActivity"
             android:screenOrientation="portrait"

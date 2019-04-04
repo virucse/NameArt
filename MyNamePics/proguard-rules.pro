@@ -16,6 +16,17 @@
 -keep class * implements com.google.gson.JsonSerializer
 -keep class * implements com.google.gson.JsonDeserializer
 
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+-keepclassmembers class * implements java.io.Serializable {
+    static final long serialVersionUID;
+    private void writeObject(java.io.ObjectOutputStream);
+    private void readObject(java.io.ObjectInputStream);
+    java.lang.Object writeReplace();
+    java.lang.Object readResolve();
+}
+
 # Add any classes the interact with gson
 -dontwarn com.facefilters**
 -keep class com.facefilters**{*;}
@@ -28,6 +39,9 @@
 #blur
 -dontwarn net.qiujuer.genius.blur**
 -keep class net.qiujuer.genius.blur**{*;}
+#native gif
+-dontwarn com.waynejo.androidndkgif**
+-keep class com.waynejo.androidndkgif**{*;}
 #UCrop
 -dontwarn com.yalantis.ucrop**
 -keep class com.yalantis.ucrop** { *; }

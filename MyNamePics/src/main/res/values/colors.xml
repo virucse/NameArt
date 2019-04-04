@@ -7,11 +7,14 @@
     <color name="picsDreamPrimaryColor">#333333</color>
     <color name="picsDreamDarkColor">#454545</color>
 
+    <color name="progressdialog_circle_color">#53CBF1</color>
+
     <color name="color_to_diseable">#8aaa</color>
 
     <color name="background_color">#ebebeb</color>
     <color name="bottom_strip_color">#dbdada</color>
     <color name="black_color">#FF000000</color>
+    <color name="black_transparent">#99000000</color>
 
     <color name="aleart_bg_color">#ff1c1c1c</color>
 

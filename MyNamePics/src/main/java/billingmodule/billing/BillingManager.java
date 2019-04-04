@@ -118,7 +118,8 @@ public class BillingManager implements PurchasesUpdatedListener {
      * Start a purchase flow
      */
     public void initiatePurchaseFlow(final String skuId, final @SkuType String billingType) {
-        initiatePurchaseFlow(skuId, null, billingType);
+        //initiatePurchaseFlow(skuId, null, billingType);
+        initiatePurchaseFlow122(skuId, billingType);//this method was used when library updated from 1.0 to 1.2.2
     }
 
     /**
@@ -137,6 +138,35 @@ public class BillingManager implements PurchasesUpdatedListener {
         };
 
         executeServiceRequest(purchaseFlowRequest);
+    }
+    /**
+     * Start a purchase or subscription replace flow, this methods was added when
+     * billing library updated from 1.0 to 1.2.2
+     */
+    public void initiatePurchaseFlow122(final String skuId, final @SkuType String billingType) {
+        final List<String> skuList=new ArrayList<>();
+        skuList.add(skuId);
+
+        querySkuDetailsAsync(billingType,skuList,new SkuDetailsResponseListener(){
+            @Override
+            public void onSkuDetailsResponse(int responseCode, List<SkuDetails> skuDetailsList) {
+                for (final SkuDetails skuDetails:skuDetailsList){
+                    if(skuDetails.getSku().equals(skuId)){
+                        Runnable purchaseFlowRequest = new Runnable() {
+                            @Override
+                            public void run() {
+                                Log.d(TAG, "Launching in-app purchase flow. Replace old SKU? ");
+                                BillingFlowParams purchaseParams = BillingFlowParams.newBuilder()
+                                        .setSkuDetails(skuDetails).build();
+                                mBillingClient.launchBillingFlow(mActivity, purchaseParams);
+                            }
+                        };
+
+                        executeServiceRequest(purchaseFlowRequest);
+                    }
+                }
+            }
+        });
     }
 
     public Context getContext() {

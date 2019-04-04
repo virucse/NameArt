@@ -32,6 +32,7 @@ import com.formationapps.nameart.activity.BaseActivity;
 import com.formationapps.nameart.R;
 import com.formationapps.nameart.activity.ShareActivity;
 import com.formationapps.nameart.helper.AdsHelper;
+import com.formationapps.nameart.helper.SaveToStorage;
 import com.gallery.activity.ImageSelectAcivity;
 import com.gallery.utils.ImageUtils;
 import com.gallery.utils.PhotoItem;
@@ -381,8 +382,7 @@ public class GIFActivity extends BaseActivity implements OnDelaySelectListener {
             publishProgress(0);
             Bitmap bitmap=createBitmap(0);
 
-            String root = Environment.getExternalStorageDirectory().toString();
-            File myDir = new File(root + "/Name Art/" + System.currentTimeMillis() + ".gif");
+            File myDir = new File(SaveToStorage.getFolderPath(GIFActivity.this)+"/" + System.currentTimeMillis() + ".gif");
             destPath = myDir.getPath();
             GifEncoder gifEncoder = new GifEncoder();
 
@@ -398,9 +398,9 @@ public class GIFActivity extends BaseActivity implements OnDelaySelectListener {
                     gifEncoder.init(bitmap.getWidth(), bitmap.getHeight(), destPath, GifEncoder.EncodingType.ENCODING_TYPE_NORMAL_LOW_MEMORY);
                 }
 
-            } catch (FileNotFoundException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
-                Log.i("CollageActivity", "doInBackground: " + e.getMessage());
+                Log.i("GIFActivity", "doInBackground: " + e.getMessage());
             }
             gifEncoder.encodeFrame(bitmap, DEALY);
             for (int i =1; i < bitmapList.size(); i++) {

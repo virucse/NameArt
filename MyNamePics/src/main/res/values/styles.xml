@@ -135,4 +135,13 @@
         <item name="android:windowBackground">@color/transparent</item>
         <item name="android:windowNoTitle">true</item>
     </style>
+
+    <!--bg remover style resource start-->
+    <style name="custom_actionbar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/custom_style</item>
+    </style>
+    <style name="custom_style" parent="@style/Widget.AppCompat.Light.ActionBar">
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+    <!--bg remover style resource start-->
 </resources>

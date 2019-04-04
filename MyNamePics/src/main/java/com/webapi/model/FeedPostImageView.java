@@ -68,7 +68,7 @@ public class FeedPostImageView extends android.support.v7.widget.AppCompatImageV
             case MotionEvent.ACTION_POINTER_UP: // second finger lifted
 
                 mode = NONE;
-                Log.d(TAG, "mode=NONE");
+                Log.d(TAG, "mode=ZOOM");
                 break;
 
             case MotionEvent.ACTION_POINTER_DOWN: // first and second finger down

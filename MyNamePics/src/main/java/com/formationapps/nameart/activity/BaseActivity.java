@@ -569,38 +569,48 @@ public class BaseActivity extends Boss {
         super.onDestroy();
     }
 
+    public void destroyBitmap(Bitmap bitmap){
+        if(bitmap!=null&&!bitmap.isRecycled()){
+           bitmap.recycle();
+        }
+    }
 
-    protected void saveButtonClicked(final View view) {
+    protected void saveButtonClicked(final Bitmap bitmap) {
         if (MarseMallowPermission.storagePermitted(this, 0)) {
-            if(view!=null){
-                view.invalidate();
-                showResForSave(view);
+            if(bitmap!=null&&!bitmap.isRecycled()){
+                saveAsDialog(bitmap);
             }
         }
     }
 
-    private void showResForSave(final View view) {
+    protected void saveButtonClicked(final View view) {
+        if (MarseMallowPermission.storagePermitted(this, 0)) {
+            if(view!=null){
+                if(view.getWidth()>0&&view.getHeight()>0){
+                    view.invalidate();
+                }else {
+                    return;
+                }
+                if (stickerView != null) {
+                    stickerView.setLocked(true);
+                }
+
+                Bitmap bitmap=Bitmap.createBitmap(view.getWidth()>0?view.getWidth():1,view.getHeight()>0?view.getHeight():1,Bitmap.Config.ARGB_8888);
+                Canvas c=new Canvas(bitmap);
+                view.draw(c);
+                saveAsDialog(bitmap);
+            }
+        }
+    }
+
+    private void saveAsDialog(final Bitmap view) {
+        if(view==null||view.isRecycled()){
+            Toast.makeText(getApplicationContext(), "Error,Please try again", Toast.LENGTH_SHORT).show();
+            return;
+        }
         this.selected = 0;
         final AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
-        xSizes = new int[]{view.getWidth(), 512, 960, 1024, 1280, 1920, 2560};
-        ySizes = new int[xSizes.length];
-        bubbleSortOrderAscending(xSizes);
-
-        List<String> sizes = new ArrayList();
-
-        sizes.clear();
-        int maxSize = AppUtils.screenHeight * 2;
-        int i = 0;
-        for (int size : xSizes) {
-            int y = (int) ((float) size * (((float) view.getHeight()) / (((float) view.getWidth()) * 1.0f)));
-            if (y < 3000 && y < maxSize) {
-                sizes.add(new StringBuilder(String.valueOf(size)).append(" X ").append(y).toString());
-                ySizes[i] = y;
-            } else {
-                // Toast.makeText(this,"viewWidth:"+viewWidth+" ViewHeight:"+viewHeight+" scaleY:"+scaleY,Toast.LENGTH_LONG).show();
-            }
-            i++;
-        }
+        List<String> sizes=determinAvailableSize(view.getWidth(),view.getHeight());
 
         mBuilder.setSingleChoiceItems((CharSequence[]) sizes.toArray(new String[0]),
                 this.selected, new DialogInterface.OnClickListener() {
@@ -613,7 +623,7 @@ public class BaseActivity extends Boss {
             @Override
             public void onClick(DialogInterface dialog, final int which) {
                 dialog.dismiss();
-                saveAsDialog(view, xSizes[selected]);
+                saveBitmapAsynchronusly(view, xSizes[selected]);
             }
         });
         mBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -628,6 +638,28 @@ public class BaseActivity extends Boss {
                 mBuilder.create().show();
             }
         });
+    }
+    private List<String> determinAvailableSize(int width,int height){
+        xSizes = new int[]{width, 512, 960, 1024, 1280, 1920, 2560};
+        ySizes = new int[xSizes.length];
+        bubbleSortOrderAscending(xSizes);
+
+        List<String> sizes = new ArrayList();
+
+        sizes.clear();
+        int maxSize = AppUtils.screenHeight * 2;
+        int i = 0;
+        for (int size : xSizes) {
+            int y = (int) ((float) size * (((float) height) / (((float) width) * 1.0f)));
+            if (y < 3000 && y < maxSize) {
+                sizes.add(new StringBuilder(String.valueOf(size)).append(" X ").append(y).toString());
+                ySizes[i] = y;
+            } else {
+                // Toast.makeText(this,"viewWidth:"+viewWidth+" ViewHeight:"+viewHeight+" scaleY:"+scaleY,Toast.LENGTH_LONG).show();
+            }
+            i++;
+        }
+        return sizes;
     }
 
     private int[] bubbleSortOrderAscending(int[] array) {
@@ -647,21 +679,14 @@ public class BaseActivity extends Boss {
             stickerView.setLocked(true);
         }
     }
-    protected void saveAsDialog(final View view, final int sizeX) {
-        if(view!=null&&view.getWidth()>0&&view.getHeight()>0){
-        }else {
-            return;
-        }
-        if (stickerView != null) {
-            stickerView.setLocked(true);
-        }
+
+    private void saveBitmapAsynchronusly(final Bitmap bitmap,final int sizeX){
         pd = new ProgressDialog(BaseActivity.this);
         pd.setMessage("Please Wait...");
         pd.setCancelable(false);
         pd.setCanceledOnTouchOutside(false);
 
         new AsyncTask<Void, Void, Boolean>() {
-            Bitmap tempBitmap;
 
             @Override
             protected void onPreExecute() {
@@ -675,12 +700,9 @@ public class BaseActivity extends Boss {
 
             @Override
             protected Boolean doInBackground(Void... params) {
-                tempBitmap=Bitmap.createBitmap(view.getWidth()>0?view.getWidth():1,view.getHeight()>0?view.getHeight():1,Bitmap.Config.ARGB_8888);
-                Canvas c=new Canvas(tempBitmap);
-                view.draw(c);
 
-                final Bitmap finalBitmap = Bitmap.createScaledBitmap(tempBitmap, sizeX,
-                        (int) ((float) sizeX * (((float) tempBitmap.getHeight()) / (((float) tempBitmap.getWidth()) * 1.0f))), true);
+                final Bitmap finalBitmap = Bitmap.createScaledBitmap(bitmap, sizeX,
+                        (int) ((float) sizeX * (((float) bitmap.getHeight()) / (((float) bitmap.getWidth()) * 1.0f))), true);
 
                 return saveImageToExternalStorage(finalBitmap);
             }
@@ -693,7 +715,7 @@ public class BaseActivity extends Boss {
                 } catch (Exception e) {
 
                 }
-                recycleBitmap(tempBitmap);
+                recycleBitmap(bitmap);
                 if (aVoid) {
                     switchToNextActivity("");
                 } else {

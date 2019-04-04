@@ -20,6 +20,7 @@ public class GalleryUtil {
     public static final int APP_TYPE_PIP = 1;
     public static final int APP_TYPE_EDITOR = 2;
     public static final int APP_TYPE_GIF = 3;
+    public static final int APP_TYPE_BG_ERASE=4;
     public static final String EXTRA_TYPE = "type";
     public static final String EXTRA_INDEX = "index";
     public static final int ALBUM_TYPE = 100;

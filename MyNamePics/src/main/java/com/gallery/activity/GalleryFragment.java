@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.formationapps.nameart.R;
 import com.formationapps.nameart.fragments.BaseFragment;
+import com.formationapps.nameart.helper.AppUtils;
 import com.gallery.utils.GalleryUtil;
 import com.gallery.utils.LoadPhotoAsync;
 import com.gallery.utils.PhotoItem;
@@ -51,7 +52,7 @@ public class GalleryFragment extends BaseFragment {
     private int appType;
     private Activity activity;
     private ListView mListAlbum;
-    private GridView mGridPhotos;
+    private GridView mGridPhotos,mGridAlbum;
     private ImageAdapter mAlbumAdapter, mGridViewAdapter, mSelectedAdapter;
     private AdapterView.OnItemClickListener mGridPhotosItemClickListener = new
             AdapterView.OnItemClickListener() {
@@ -67,6 +68,20 @@ public class GalleryFragment extends BaseFragment {
     private AdapterView.OnItemClickListener mListAlbumItemClickListener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            mSelectedAlbumIndex = position;
+            long albumId = mAlbumAdapter.getItemId(position);
+            loadPhotoItem(albumId);
+            mAlbumAdapter.notifyDataSetChanged();
+        }
+    };
+    private AdapterView.OnItemClickListener mGridAlbumItemClickListener=new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            //should back button visible here
+            if(backWhite!=null){
+                backWhite.setVisibility(View.VISIBLE);
+                list_grid_container.setVisibility(View.GONE);
+            }
             mSelectedAlbumIndex = position;
             long albumId = mAlbumAdapter.getItemId(position);
             loadPhotoItem(albumId);
@@ -116,13 +131,21 @@ public class GalleryFragment extends BaseFragment {
         return view;
     }
 
+
+    private RelativeLayout list_grid_container;
+    private ImageButton gridOn,backWhite;
     private void initUi(View view) {
+        gridOn=view.findViewById(R.id.ib_ip_gallery);
+        backWhite=view.findViewById(R.id.ib_ip_back);
+        backWhite.setVisibility(View.INVISIBLE);
+        list_grid_container=view.findViewById(R.id.listgridcontainer);
         mListAlbum = (ListView) view.findViewById(R.id.lv_ip_album);
+        mGridAlbum=(GridView)view.findViewById(R.id.gd_ip_album) ;
         mGridPhotos = (GridView) view.findViewById(R.id.gv_ip_photo);
 
         this.mListAlbum.setLayoutParams(new RelativeLayout.LayoutParams(grid_size + 10, RelativeLayout.LayoutParams.MATCH_PARENT));
         if (appType != GalleryUtil.APP_TYPE_COLLAGE) {
-
+            list_grid_container.getLayoutParams().height=RelativeLayout.LayoutParams.MATCH_PARENT;
             mListAlbum.getLayoutParams().height = RelativeLayout.LayoutParams.MATCH_PARENT;
             mGridPhotos.getLayoutParams().height = RelativeLayout.LayoutParams.MATCH_PARENT;
             mListAlbum.invalidate();
@@ -143,12 +166,19 @@ public class GalleryFragment extends BaseFragment {
     private void loadPhoto(List<PhotoItem> list, int type) {
         if (list != null && !list.isEmpty()) {
             if (type == GalleryUtil.ALBUM_TYPE) {
-                mAlbumAdapter = new ImageAdapter(activity, list, GalleryUtil.ALBUM_TYPE);
-                mListAlbum.setAdapter(mAlbumAdapter);
-
-                mSelectedAlbumIndex = 0;
-                loadPhotoItem(list.get(mSelectedAlbumIndex).getId());
-                mListAlbum.setOnItemClickListener(mListAlbumItemClickListener);
+                if(mListAlbum.getVisibility()==View.VISIBLE){
+                    mAlbumAdapter = new ImageAdapter(getActivity(), list, GalleryUtil.ALBUM_TYPE);
+                    mListAlbum.setAdapter(mAlbumAdapter);
+                    //mSelectedAlbumIndex = 0;
+                    loadPhotoItem(list.get(mSelectedAlbumIndex).getId());
+                    mListAlbum.setOnItemClickListener(mListAlbumItemClickListener);
+                }else if(mGridAlbum.getVisibility()==View.VISIBLE){
+                    mAlbumAdapter = new ImageAdapter(getActivity(), list, GalleryUtil.ALBUM_TYPE);
+                    mGridAlbum.setAdapter(mAlbumAdapter);
+                    //mSelectedAlbumIndex = 0;
+                    loadPhotoItem(list.get(mSelectedAlbumIndex).getId());
+                    mGridAlbum.setOnItemClickListener(mGridAlbumItemClickListener);
+                }
             } else if (type == GalleryUtil.PHOTO_TYPE) {
                 if (mGridViewAdapter == null) {
                     mGridViewAdapter = new ImageAdapter(activity, list, GalleryUtil.PHOTO_TYPE);
@@ -173,7 +203,28 @@ public class GalleryFragment extends BaseFragment {
     }
 
     public void onClick(View v) {
-
+    if(v.getId()==R.id.ib_ip_gallery){
+            if(mListAlbum.getVisibility()==View.VISIBLE){
+                mListAlbum.setVisibility(View.GONE);
+                mGridAlbum.setVisibility(View.VISIBLE);
+                GalleryUtil.setImage(gridOn, R.mipmap.grid_off_white);
+                list_grid_container.getLayoutParams().width=RelativeLayout.LayoutParams.MATCH_PARENT;
+            }else if(mGridAlbum.getVisibility()==View.VISIBLE){
+                list_grid_container.getLayoutParams().width=AppUtils.dpToPx(getContext(),100.0f);
+                GalleryUtil.setImage(gridOn, R.mipmap.grid_on_white);
+                mListAlbum.setVisibility(View.VISIBLE);
+                mGridAlbum.setVisibility(View.GONE);
+            }
+            LoadPhotoAsync.loadAlbumAsync(getContext(), new LoadPhotoAsync.ItemLoadListener() {
+                @Override
+                public void onPhotoLoaded_LoadPhotoAsync(List<PhotoItem> list) throws Exception {
+                    loadPhoto(list, GalleryUtil.ALBUM_TYPE);
+                }
+            });
+        }else if(v.getId()==R.id.ib_ip_back){
+            backWhite.setVisibility(View.INVISIBLE);
+            list_grid_container.setVisibility(View.VISIBLE);
+        }
     }
 
 

@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -28,6 +29,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.formationapps.artpanel.ArtbgListener;
 import com.formationapps.artpanel.NameArtPanel;
 import com.formationapps.nameart.App;
@@ -37,6 +41,7 @@ import com.formationapps.nameart.fragments.SymbolFragment;
 import com.formationapps.nameart.helper.AdsHelper;
 import com.formationapps.nameart.helper.AppUtils;
 import com.google.android.gms.analytics.Tracker;
+import com.removebg.BitmapContainer;
 import com.xiaopo.flying.sticker.DrawableSticker;
 import com.xiaopo.flying.sticker.StickerView;
 
@@ -260,23 +265,28 @@ public class ArtActivity extends BaseActivity implements ArtbgListener {
                 if (resultCode == RESULT_OK && data != null && data.getData() != null) {
                     Uri uri = data.getData();
                     try {
-                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                        if (FeatureCropUtil.getInstance().setBitmap(bitmap)) {
-                            startActivityForResult(new Intent(this, FeatureCutActivity.class), LAUNCH_HEAD_PHOTO);
-                            recycleWithDelay(bitmap,1000);
-                        } else {
-                            Toast.makeText(getApplicationContext(), "Supplied image is not valid.please select another",
-                                    Toast.LENGTH_LONG).show();
-                        }
-                    } catch (IOException e) {
+                        Glide.with(getApplicationContext()).asBitmap().load(uri).into(new SimpleTarget<Bitmap>() {
+                            @Override
+                            public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                                if (BitmapContainer.getInstance().setBitmap(resource)) {
+                                    startActivityForResult(new Intent(getApplicationContext(), BgRemoverActivity.class), LAUNCH_HEAD_PHOTO);
+                                    //recycleWithDelay(bitmap,1000);
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Supplied image is not valid.please select another",
+                                            Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
+                        //Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
                 break;
             case LAUNCH_HEAD_PHOTO:
                 if (resultCode == RESULT_OK) {
-                    Bitmap bitmap = FeatureCropUtil.getInstance().getBitmap(true, true);
-                    if (bitmap != null) {
+                    Bitmap bitmap = BitmapContainer.getInstance().getBitmap();
+                    if (bitmap != null&&!bitmap.isRecycled()) {
                         Drawable d = new BitmapDrawable(getResources(), bitmap);
                         stickerView.addSticker(new DrawableSticker(d));
                     } else {

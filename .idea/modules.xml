@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BlurLib/BlurLib.iml" filepath="$PROJECT_DIR$/BlurLib/BlurLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MyNamePics/MyNamePics.iml" filepath="$PROJECT_DIR$/MyNamePics/MyNamePics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NameArt.iml" filepath="$PROJECT_DIR$/NameArt.iml" />
+    </modules>
+  </component>
+</project>

@@ -90,6 +90,18 @@
                             android:textSize="16sp" />
 
                         <TextView
+                            android:id="@+id/remove_bg"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="10dp"
+                            android:drawableTop="@mipmap/removebg"
+                            android:gravity="center"
+                            android:text="@string/remove_bg"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <TextView
                             android:id="@+id/edit_button"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
@@ -146,20 +158,21 @@
                             android:textAllCaps="false"
                             android:textColor="@color/black"
                             android:textSize="16sp" />
+                        <TextView
+                            android:id="@+id/camera_button"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="10dp"
+                            android:drawableTop="@mipmap/folder"
+                            android:gravity="center"
+                            android:text="@string/creation"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:visibility="visible"/>
                     </LinearLayout>
                 </LinearLayout>
-                <TextView
-                    android:id="@+id/camera_button"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="10dp"
-                    android:drawableTop="@mipmap/folder"
-                    android:gravity="center"
-                    android:text="@string/creation"
-                    android:textAllCaps="false"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:visibility="visible"/>
+
             </LinearLayout>
         </ScrollView>
     </RelativeLayout>

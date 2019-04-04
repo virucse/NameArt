@@ -69,6 +69,7 @@ public class HomeFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
 
         ((NameArtMenu) getActivity()).setSelection(R.id.home, R.mipmap.home_select);
+
         TextView template = (TextView) view.findViewById(R.id.menu_template_button);
         template.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -170,6 +171,18 @@ public class HomeFragment extends BaseFragment {
                     public void onClicked(View view) {
                         Intent intent = new Intent(getActivity(), FolderActivity.class);
                         startActivity(intent);
+                    }
+                });
+            }
+        });
+        TextView removeBg=(TextView)view.findViewById(R.id.remove_bg);
+        removeBg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Styleable.onClick(v, new Styleable.Clicked() {
+                    @Override
+                    public void onClicked(View view) {
+                        ((NameArtMenu) getActivity()).startEdit(GalleryUtil.APP_TYPE_BG_ERASE);
                     }
                 });
             }

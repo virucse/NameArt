@@ -106,7 +106,7 @@ public class DrawableFragment extends BaseFragment implements View.OnTouchListen
             case MotionEvent.ACTION_POINTER_UP: // second finger lifted
 
                 mode = NONE;
-                Log.d(TAG, "mode=NONE");
+                Log.d(TAG, "mode=ZOOM");
                 break;
 
             case MotionEvent.ACTION_POINTER_DOWN: // first and second finger down

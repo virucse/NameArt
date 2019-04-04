@@ -476,7 +476,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
             for (int i = 0; i < mPostList.size(); i++) {
                 if(mPostList.get(i) instanceof UnifiedNativeAdView){
                    // continue;
-                }else{
+                }else if(mPostList.get(i) instanceof FeedPost){
                     if (((FeedPost)mPostList.get(i)).user.id == userId) {
                         if (isFollowing) {
                             ((FeedPost)mPostList.get(i)).user.is_follow = true;

@@ -23,7 +23,9 @@ import com.bumptech.glide.Glide;
 import com.editor.activity.EditorActivity;
 import com.formationapps.nameart.R;
 import com.formationapps.nameart.activity.BaseActivity;
+import com.formationapps.nameart.activity.BgRemoverActivity;
 import com.formationapps.nameart.helper.AdsHelper;
+import com.formationapps.nameart.helper.AppUtils;
 import com.formationapps.widget.HorizontalListView;
 import com.gallery.utils.GalleryUtil;
 import com.gallery.utils.ImageUtils;
@@ -59,7 +61,7 @@ public class ImageSelectAcivity extends BaseActivity {
     private int replaceIndex;
     private int appType;
     private ListView mListAlbum;
-    private GridView mGridPhotos;
+    private GridView mGridPhotos,mGridAlbum;
     private TextView mTvCurrentCount, mTvMaxCount;
     private HorizontalListView mHlv;
     private ImageAdapter mAlbumAdapter, mGridViewAdapter, mSelectedAdapter;
@@ -124,6 +126,12 @@ public class ImageSelectAcivity extends BaseActivity {
                                 updateText();
                             }
                         }
+                    }else if(appType==GalleryUtil.APP_TYPE_BG_ERASE){
+                        PhotoItem photoItem = (PhotoItem) mGridViewAdapter.getItem(position);
+                        Uri uri = Uri.fromFile(new File(photoItem.getPath()));
+                        startActivity(new Intent(ImageSelectAcivity.this,
+                                BgRemoverActivity.class).setData(uri));
+                        finish();
                     }
 
                 }
@@ -131,6 +139,20 @@ public class ImageSelectAcivity extends BaseActivity {
     private AdapterView.OnItemClickListener mListAlbumItemClickListener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            mSelectedAlbumIndex = position;
+            long albumId = mAlbumAdapter.getItemId(position);
+            loadPhotoItem(albumId);
+            mAlbumAdapter.notifyDataSetChanged();
+        }
+    };
+    private AdapterView.OnItemClickListener mGridAlbumItemClickListener=new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            //should back button visible here
+            if(backWhite!=null){
+                backWhite.setVisibility(View.VISIBLE);
+                list_grid_container.setVisibility(View.GONE);
+            }
             mSelectedAlbumIndex = position;
             long albumId = mAlbumAdapter.getItemId(position);
             loadPhotoItem(albumId);
@@ -200,8 +222,16 @@ public class ImageSelectAcivity extends BaseActivity {
         setUpData();
     }
 
+    private RelativeLayout list_grid_container;
+    private ImageButton gridOn,backWhite;
     private void initUi() {
+        gridOn=findViewById(R.id.ib_ip_gallery);
+        gridOn.setVisibility(View.VISIBLE);
+        backWhite=findViewById(R.id.ib_ip_back);
+        backWhite.setVisibility(View.INVISIBLE);
+        list_grid_container=findViewById(R.id.listgridcontainer);
         mListAlbum = (ListView) findViewById(R.id.lv_ip_album);
+        mGridAlbum=(GridView)findViewById(R.id.gd_ip_album) ;
         mGridPhotos = (GridView) findViewById(R.id.gv_ip_photo);
         this.mTvCurrentCount = (TextView) findViewById(R.id.tv_ip_count);
         this.mTvMaxCount = (TextView) findViewById(R.id.tv_ip_max);
@@ -209,12 +239,13 @@ public class ImageSelectAcivity extends BaseActivity {
         this.mListAlbum.setLayoutParams(new RelativeLayout.LayoutParams(grid_size + 10, RelativeLayout.LayoutParams.MATCH_PARENT));
         if (appType != GalleryUtil.APP_TYPE_COLLAGE ) {
             findViewById(R.id.show_im).setVisibility(View.GONE);
+            list_grid_container.getLayoutParams().height=RelativeLayout.LayoutParams.MATCH_PARENT;
             mListAlbum.getLayoutParams().height = RelativeLayout.LayoutParams.MATCH_PARENT;
             mGridPhotos.getLayoutParams().height = RelativeLayout.LayoutParams.MATCH_PARENT;
             mListAlbum.invalidate();
             mGridPhotos.invalidate();
         }
-        GalleryUtil.setImage((ImageButton) findViewById(R.id.ib_ip_back), R.mipmap.ic_cross);
+        GalleryUtil.setImage((ImageButton) findViewById(R.id.ib_ip_back), R.mipmap.back_arrow_white);
         GalleryUtil.setImage((ImageButton) findViewById(R.id.ib_ip_clear), R.mipmap.ic_clear_all);
     }
 
@@ -292,12 +323,19 @@ public class ImageSelectAcivity extends BaseActivity {
     private void loadPhoto(List<PhotoItem> list, int type) {
         if (list != null && !list.isEmpty()) {
             if (type == GalleryUtil.ALBUM_TYPE) {
-                mAlbumAdapter = new ImageAdapter(this, list, GalleryUtil.ALBUM_TYPE);
-                mListAlbum.setAdapter(mAlbumAdapter);
-
-                mSelectedAlbumIndex = 0;
-                loadPhotoItem(list.get(mSelectedAlbumIndex).getId());
-                mListAlbum.setOnItemClickListener(mListAlbumItemClickListener);
+                if(mListAlbum.getVisibility()==View.VISIBLE){
+                    mAlbumAdapter = new ImageAdapter(this, list, GalleryUtil.ALBUM_TYPE);
+                    mListAlbum.setAdapter(mAlbumAdapter);
+                    //mSelectedAlbumIndex = 0;
+                    loadPhotoItem(list.get(mSelectedAlbumIndex).getId());
+                    mListAlbum.setOnItemClickListener(mListAlbumItemClickListener);
+                }else if(mGridAlbum.getVisibility()==View.VISIBLE){
+                    mAlbumAdapter = new ImageAdapter(this, list, GalleryUtil.ALBUM_TYPE);
+                    mGridAlbum.setAdapter(mAlbumAdapter);
+                    //mSelectedAlbumIndex = 0;
+                    loadPhotoItem(list.get(mSelectedAlbumIndex).getId());
+                    mGridAlbum.setOnItemClickListener(mGridAlbumItemClickListener);
+                }
             } else if (type == GalleryUtil.PHOTO_TYPE) {
                 if (mGridViewAdapter == null) {
                     mGridViewAdapter = new ImageAdapter(this, list, GalleryUtil.PHOTO_TYPE);
@@ -328,13 +366,39 @@ public class ImageSelectAcivity extends BaseActivity {
     public void onClick(View v) {
         if (v.getId() == R.id.ib_ip_clear) {
             if(mSelectedAdapter!=null)mSelectedAdapter.clearAll();
+        }else if(v.getId()==R.id.ib_ip_gallery){
+            if(mListAlbum.getVisibility()==View.VISIBLE){
+                mListAlbum.setVisibility(View.GONE);
+                mGridAlbum.setVisibility(View.VISIBLE);
+                GalleryUtil.setImage(gridOn, R.mipmap.grid_off_white);
+                list_grid_container.getLayoutParams().width=RelativeLayout.LayoutParams.MATCH_PARENT;
+            }else if(mGridAlbum.getVisibility()==View.VISIBLE){
+                list_grid_container.getLayoutParams().width=AppUtils.dpToPx(this,100.0f);
+                GalleryUtil.setImage(gridOn, R.mipmap.grid_on_white);
+                mListAlbum.setVisibility(View.VISIBLE);
+                mGridAlbum.setVisibility(View.GONE);
+            }
+            LoadPhotoAsync.loadAlbumAsync(this, new LoadPhotoAsync.ItemLoadListener() {
+                @Override
+                public void onPhotoLoaded_LoadPhotoAsync(List<PhotoItem> list) throws Exception {
+                    loadPhoto(list, GalleryUtil.ALBUM_TYPE);
+                }
+            });
+        }else if(v.getId()==R.id.ib_ip_back){
+            backWhite.setVisibility(View.INVISIBLE);
+            list_grid_container.setVisibility(View.VISIBLE);
         }
     }
 
     @Override
     public void onBackPressed() {
         // overridePendingTransition(17432576, R.anim.start_bottom_out);
-        finish();
+        if(backWhite.getVisibility()==View.VISIBLE){
+            backWhite.setVisibility(View.INVISIBLE);
+            list_grid_container.setVisibility(View.VISIBLE);
+        }else {
+            finish();
+        }
     }
 
 
