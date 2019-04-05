@@ -516,10 +516,13 @@ public class BgRemoverActivity extends BaseActivity {
     }
 
     protected void onDestroy() {
-        /*if (this.f22b != null) {
+        if(launchType==LAUNCHTYPE.SUPPORT){
+           if (this.f22b != null&&!f22b.isRecycled()) {
             this.f22b.recycle();
             this.f22b = null;
-        }*/
+            }
+        }
+
         if (!(isFinishing()|| mEV ==null || this.mEV.pd == null || !this.mEV.pd.isShowing())) {
             this.mEV.pd.dismiss();
         }

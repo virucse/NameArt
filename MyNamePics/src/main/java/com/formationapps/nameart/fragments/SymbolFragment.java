@@ -352,24 +352,25 @@ public class SymbolFragment extends Fragment {
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
+                        readFromLoacal();
                     }
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
                     Log.d(TAG, "Symbol.readFirebaseStorage Failure Exception" + e.getMessage());
-                    Toast.makeText(activity, "OnFailure.Exception:" + e.getMessage(), Toast.LENGTH_LONG).show();
+                    //Toast.makeText(activity, "OnFailure.Exception:" + e.getMessage(), Toast.LENGTH_LONG).show();
+                    readFromLoacal();
                     setCloudReadingDate(0);
                 }
             });
         } catch (IOException e) {
             e.printStackTrace();
-            Toast.makeText(activity, "IOException:" + e.getMessage(), Toast.LENGTH_LONG).show();
+            //Toast.makeText(activity, "IOException:" + e.getMessage(), Toast.LENGTH_LONG).show();
             Log.d(TAG, "Symbol.readFirebaseStorage IOException" + e.getMessage());
+            readFromLoacal();
             setCloudReadingDate(0);
         }
-
-        readFromLoacal();
     }
 
     private void readSymbolJson(String json) {

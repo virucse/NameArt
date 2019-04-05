@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.formationapps.nameart.BuildConfig;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -22,6 +23,9 @@ public class DeletePostApi {
     public DeletePostApi(final Context context, final long postId, final CommanProcessingListener listener) {
         RequestParams param = new RequestParams();
         param.put("post_id", "" + postId);
+        if(BuildConfig.DEBUG){
+            Log.e("deletePostApi:","url:"+deletepost+" post_id:"+postId);
+        }
         AsyncHttpClient client = new AsyncHttpClient();
         client.post(context, deletepost, new Header[]{new MyHeader(context)}, param, null, new AsyncHttpResponseHandler() {
             @Override

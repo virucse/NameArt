@@ -546,9 +546,9 @@ public class BgEraserView extends AppCompatImageView implements OnTouchListener 
                 canvas.drawCircle(this.globX, this.globY + ((float) this.offset), updatebrushsize(BgEraserImageUtils.dpToPx(getContext(), 9), this.scale), this.f21p);
                 this.f21p.setStrokeWidth(updatebrushsize(BgEraserImageUtils.dpToPx(getContext(), 1), this.scale));
                 canvas2 = canvas;
-                canvas2.drawLine(this.globX - ((float) (this.targetBrushSize / 4)), this.globY, ((float) (this.targetBrushSize / 2)) + this.globX, this.globY, this.f21p);
+                canvas2.drawLine(this.globX - ((float) (this.targetBrushSize / 4)), this.globY, ((float) (this.targetBrushSize / 4)) + this.globX, this.globY, this.f21p);
                 canvas2 = canvas;
-                canvas2.drawLine(this.globX, this.globY - ((float) (this.targetBrushSize / 4)), this.globX, ((float) (this.targetBrushSize / 2)) + this.globY, this.f21p);
+                canvas2.drawLine(this.globX, this.globY - ((float) (this.targetBrushSize / 4)), this.globX, ((float) (this.targetBrushSize / 4)) + this.globY, this.f21p);
                 if (!this.drawOnLasso) {
                     this.erPaint1.setStrokeWidth(updatebrushsize(this.erps, this.scale));
                     canvas.drawPath(this.lPath, this.erPaint1);

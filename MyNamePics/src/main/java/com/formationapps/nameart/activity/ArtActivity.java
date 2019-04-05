@@ -265,9 +265,11 @@ public class ArtActivity extends BaseActivity implements ArtbgListener {
                 if (resultCode == RESULT_OK && data != null && data.getData() != null) {
                     Uri uri = data.getData();
                     try {
+                        pd.show();
                         Glide.with(getApplicationContext()).asBitmap().load(uri).into(new SimpleTarget<Bitmap>() {
                             @Override
                             public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                                pd.dismiss();
                                 if (BitmapContainer.getInstance().setBitmap(resource)) {
                                     startActivityForResult(new Intent(getApplicationContext(), BgRemoverActivity.class), LAUNCH_HEAD_PHOTO);
                                     //recycleWithDelay(bitmap,1000);
@@ -280,6 +282,7 @@ public class ArtActivity extends BaseActivity implements ArtbgListener {
                         //Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                     } catch (Exception e) {
                         e.printStackTrace();
+                        pd.dismiss();
                     }
                 }
                 break;

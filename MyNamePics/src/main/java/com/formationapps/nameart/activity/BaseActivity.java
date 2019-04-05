@@ -194,8 +194,7 @@ public class BaseActivity extends Boss {
             return true;
         }
     };
-    private ProgressDialog pd;
-
+    public ProgressDialog pd;
     public static void showNetworkErrorMessage(Activity activity) {
         try {
             final Dialog dialog = new Dialog(activity, R.style.Theme_IAPTheme);
@@ -257,6 +256,8 @@ public class BaseActivity extends Boss {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        pd = new ProgressDialog(BaseActivity.this);
+        pd.setMessage("Please Wait...");
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         if (PurchaseUtils.isYearlyPurchased(this) || PurchaseUtils.isPermanentPurchased(this)) {
             //dont show ads its premium purchase
@@ -681,8 +682,6 @@ public class BaseActivity extends Boss {
     }
 
     private void saveBitmapAsynchronusly(final Bitmap bitmap,final int sizeX){
-        pd = new ProgressDialog(BaseActivity.this);
-        pd.setMessage("Please Wait...");
         pd.setCancelable(false);
         pd.setCanceledOnTouchOutside(false);
 

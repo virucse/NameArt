@@ -39,7 +39,7 @@ public class BgEraseBottomView extends BaseOnlyScrollPanel<Integer[]> {
     }
     private void init(Context context){
         name=new int[]{R.string.text_magic,R.string.manual,R.string.freehand, R.string.text_repair,R.string.text_zoom};
-        resId=new int[]{R.mipmap.ic_auto,R.mipmap.ic_erase,R.mipmap.freehand,R.mipmap.ic_repair,R.mipmap.ic_zoom};
+        resId=new int[]{R.mipmap.ic_auto,R.mipmap.ic_erase,R.mipmap.ic_freehand,R.mipmap.ic_repair,R.mipmap.ic_zoom};
         if(context instanceof Activity){
             initView((Activity) context);
         }
